@@ -9,3 +9,11 @@
 @import '~@ionic/angular/css/text-alignment.css';
 @import '~@ionic/angular/css/text-transformation.css';
 @import '~@ionic/angular/css/flex-utils.css';
+
+.card-content-ios,
+.card-content-android {
+    padding: 8px 12px;
+    ion-card-title {
+        font-size: 18px;
+    }
+}

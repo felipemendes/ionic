@@ -1,9 +1,17 @@
 <ion-header>
   <ion-toolbar>
-    <ion-title>details</ion-title>
+    <ion-title>
+      {{event.title}}
+    </ion-title>
   </ion-toolbar>
 </ion-header>
 
-<ion-content padding>
-
+<ion-content>
+  <ion-card>
+    <ion-img [src]="event.image"></ion-img>
+    <ion-card-content>
+      <ion-card-title>{{event.title}}</ion-card-title>
+    </ion-card-content>
+  </ion-card>
 </ion-content>
+  
