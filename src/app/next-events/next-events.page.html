@@ -1,12 +1,22 @@
-<ion-header>
-  <ion-toolbar>
-    <ion-title>
-      Próximos eventos
-    </ion-title>
-  </ion-toolbar>
-</ion-header>
-
 <ion-content>
+
+  <div class="header">
+    <ion-img src="assets/img/logo-white.png" class="logo"></ion-img>
+  </div>
+
+  <p class="title">Destaques</p>
+
+  <ion-slides pager="true">
+    <ion-slide *ngFor="let event of events" (click)="showDetails(event)">
+      <ion-card>
+        <ion-img [src]="event.image"></ion-img>
+      </ion-card>
+      <p class="event-title" text-left>{{event.title}}</p>
+    </ion-slide>
+  </ion-slides>
+
+  <p class="title" margin-top>Próximos</p>
+
   <ion-card *ngFor="let event of events" (click)="showDetails(event)">
     <ion-img [src]="event.image"></ion-img>
     <ion-card-content>

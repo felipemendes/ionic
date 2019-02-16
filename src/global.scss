@@ -10,10 +10,76 @@
 @import '~@ionic/angular/css/text-transformation.css';
 @import '~@ionic/angular/css/flex-utils.css';
 
-.card-content-ios,
-.card-content-android {
-    padding: 8px 12px;
-    ion-card-title {
-        font-size: 18px;
+/** header **/
+
+.header {
+    background-image: url(assets/img/header-background.png);
+    background-size: cover;
+    background-position: center;
+    height: 115px;
+    margin-bottom: 20px;
+    .logo {
+        width: 180px;
+        height: fit-content;
+        padding: 45px 16px 0 16px;
+    }
+}
+
+/** content **/
+
+ion-content {
+    --ion-background-color:var(--dark);
+    .title {
+        color: #fff;
+        font-size: 24px;
+        font-weight: 600;
+        width: 100%;
+        margin-bottom: 0;
+        padding: 0 16px;
+    }
+}
+
+/** tab bar **/
+
+ion-tab-bar {
+    --background:var(--dark);
+}
+
+/** slide **/
+
+ion-slide {
+    flex-direction: column;
+    .sc-ion-card-ios-h,
+    .sc-ion-card-md-h {
+        margin-bottom: 0;
+        height: 250px;
+        border-top: 4px solid var(--ion-color-primary);
+    }
+    .event-title {
+        margin: 10px 0 25px 0;
+        padding: 0 16px;
+        color: #fff;
+        font-size: 16px;
+        font-weight: 600;
+        width: 100%;
+    }
+}
+
+/** card **/
+
+ion-card {
+    ion-img {
+        height: 300px;
+        object-fit: cover;
+    }
+    .card-content-ios,
+    .card-content-md {
+        padding: 8px 12px;
+        background: var(--ion-color-primary);
+        ion-card-title {
+            font-size: 16px;
+            font-weight: 600;
+            color: #fff;
+        }
     }
 }
