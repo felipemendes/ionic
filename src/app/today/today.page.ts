@@ -13,7 +13,7 @@ export class TodayPage implements OnInit {
 
   ngOnInit() {
     this.eventsService
-      .fetchFeed('12fzng')
+      .fetchFeed('events')
       .subscribe(data => {
         this.events = data;
       })

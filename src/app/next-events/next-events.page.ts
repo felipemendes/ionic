@@ -8,14 +8,27 @@ import { Router } from '@angular/router';
   styleUrls: ['next-events.page.scss']
 })
 export class NextEventsPage implements OnInit {
-  events: any;
+
+  sliderConfig = {
+    slidesPerView: 1.2
+  };
+
+  todayEvents: any = [];
+  nextEvents: any = [];
+
   constructor(private eventsService: EventsService, private router: Router) {}
 
   ngOnInit() {
     this.eventsService
-      .fetchFeed('12fzng')
+      .fetchFeed('events?today')
       .subscribe(data => {
-        this.events = data;
+        this.todayEvents = data;
+      })
+
+    this.eventsService
+      .fetchFeed('events')
+      .subscribe(data => {
+        this.nextEvents = data;
       })
   }
 

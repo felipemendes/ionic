@@ -4,7 +4,7 @@
 
 export const environment = {
   production: false,
-  apiUrl: 'https://api.myjson.com/bins'
+  apiUrl: 'http://localhost:8081/wp-json/purai/v1'
 };
 
 /*

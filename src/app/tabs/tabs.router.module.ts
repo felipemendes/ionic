@@ -8,20 +8,20 @@ const routes: Routes = [
     component: TabsPage,
     children: [
       {
-        path: 'next-events',
-        children: [
-          {
-            path: '',
-            loadChildren: '../next-events/next-events.module#NextEventsPageModule'
-          }
-        ]
-      },
-      {
         path: 'featured',
         children: [
           {
             path: '',
             loadChildren: '../featured/featured.module#FeaturedPageModule'
+          }
+        ]
+      },
+      {
+        path: 'next-events',
+        children: [
+          {
+            path: '',
+            loadChildren: '../next-events/next-events.module#NextEventsPageModule'
           }
         ]
       },
@@ -45,14 +45,14 @@ const routes: Routes = [
       },
       {
         path: '',
-        redirectTo: '/tabs/next-events',
+        redirectTo: '/tabs/featured',
         pathMatch: 'full'
       }
     ]
   },
   {
     path: '',
-    redirectTo: '/tabs/next-events',
+    redirectTo: '/tabs/featured',
     pathMatch: 'full'
   }
 ];
