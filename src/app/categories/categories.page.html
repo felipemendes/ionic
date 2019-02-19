@@ -1,1 +1,11 @@
-<ion-content></ion-content>
+<ion-content>
+    <div class="header">
+        <ion-img src="assets/img/logo-white.png" class="logo"></ion-img>
+    </div>
+    
+    <ion-card *ngFor="let category of categories" (click)="showDetails(category.slug)">
+        <ion-card-content>
+            <ion-card-title>{{category.title}}</ion-card-title>
+        </ion-card-content>
+    </ion-card>
+</ion-content>

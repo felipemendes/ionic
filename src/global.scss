@@ -18,7 +18,7 @@
     background: #FF0099;
     background-image:  var(--ion-color-primary-gradient);
     border-radius: 0 0 80% 10% / 0% 0% 90% 40%;
-    box-shadow: -2vmin 2vmin 0 rgba(255, 255, 255, 0.07);
+    box-shadow: -2vmin 2vmin 0 var(--shadow);
     .logo {
         width: 180px;
         height: fit-content;
