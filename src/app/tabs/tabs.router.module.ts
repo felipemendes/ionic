@@ -26,11 +26,11 @@ const routes: Routes = [
         ]
       },
       {
-        path: 'today',
+        path: 'city',
         children: [
           {
             path: '',
-            loadChildren: '../today/today.module#TodayPageModule'
+            loadChildren: '../city/city.module#CityPageModule'
           }
         ]
       },
