@@ -32,8 +32,8 @@ export class FeaturedPage implements OnInit {
       })
   }
 
-  showDetails(event) {
-    this.eventsService.currentEvent = event;
-    this.router.navigate(['/details']);
-  }
+    showDetails(event) {
+        this.eventsService.currentEvent = event;
+        this.router.navigate(['/details']);
+    }
 }

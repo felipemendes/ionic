@@ -1,33 +1,34 @@
 import { Component, OnInit } from '@angular/core';
+import { ModalController } from "@ionic/angular";
 import { CategoriesService } from '../categories.service';
-import { Router } from '@angular/router';
+import { EventsByCategoryPage } from '../events-by-category/events-by-category.page';
 
 @Component({
-  selector: 'app-categories',
-  templateUrl: 'categories.page.html',
-  styleUrls: ['categories.page.scss']
+    selector: 'app-categories',
+    templateUrl: 'categories.page.html',
+    styleUrls: ['categories.page.scss']
 })
 export class CategoriesPage implements OnInit {
-  
-  sliderConfig = {
-    slidesPerView: 1.2
-  };
+    categories: any = [];
 
-  categories: any = [];
-  
-  constructor(private categoriesService: CategoriesService, private router: Router) {}
+    constructor(public modalController: ModalController, private categoriesService: CategoriesService) {}
 
-  ngOnInit() {
-    this.categoriesService
-      .fetchFeed('categories')
-      .subscribe(data => {
-        this.categories = data;
-      })
-  }
+    ngOnInit() {
+        this.categoriesService
+        .fetchFeed('categories')
+        .subscribe(data => {
+            this.categories = data;
+        })
+    }
 
-  showDetails(category) {
-    console.log(category);
-    this.categoriesService.currentCategory = category;
-    this.router.navigate(['/events-by-category']);
-  }
+    async showEvents(categorySlug:string, categoryTitle:string) {
+        const modal = await this.modalController.create({
+            component: EventsByCategoryPage,
+            componentProps: {
+                categorySlug: categorySlug,
+                categoryTitle: categoryTitle
+            }
+        });
+        return await modal.present();
+    }
 }

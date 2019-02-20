@@ -1,0 +1,25 @@
+ion-content {
+    border-top: 4px solid var(--ion-color-primary);
+    .category-info {
+        p {
+            color: #fff;
+            font-size: 24px;
+            font-weight: 600;
+            width: 100%;
+            margin-bottom: 0;
+            padding: 0 16px;
+        }
+        ion-icon {
+            position: absolute;
+            right: 20px;
+            top: 20px;
+            float: right;
+            z-index: 1;
+            color: #fff;
+        }
+    }
+    
+    ion-card {
+        margin-top: 50px;
+    }
+}

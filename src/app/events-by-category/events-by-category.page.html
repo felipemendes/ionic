@@ -1,7 +1,15 @@
 <ion-content>
-    <ion-card *ngFor="let event of events">
-        <ion-card-content>
-            <ion-card-title>{{event.title}}</ion-card-title>
-        </ion-card-content>
-    </ion-card>
+    <div class="category-info">
+        <p>{{categoryTitle}}</p>
+        <ion-icon name="close-circle-outline" size="large" (click)="dismiss()"></ion-icon>
+    </div>
+    
+    <div class="list-card">
+        <ion-card *ngFor="let event of events" (click)="showDetails(event)">
+            <ion-img [src]="event.image"></ion-img>
+            <ion-card-content>
+                <ion-card-title>{{event.title}}</ion-card-title>
+            </ion-card-content>
+        </ion-card>
+    </div>
 </ion-content>
