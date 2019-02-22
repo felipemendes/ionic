@@ -10,7 +10,7 @@
     <ion-slides [options]="sliderConfig">
       <ion-slide *ngFor="let event of todayEvents" (click)="showDetails(event)">
         <ion-card>
-          <ion-img [src]="event.image"></ion-img>
+          <ion-img [src]="event.thumbnail"></ion-img>
         </ion-card>
         <p class="event-title" text-left>{{event.title}}</p>
       </ion-slide>
@@ -18,10 +18,10 @@
   </div>
 
   <div *ngIf="nextEvents.length > 0" class="list-card">
-    <p class="title" margin-top>Próximos</p>
+    <p class="title">Próximos</p>
 
     <ion-card *ngFor="let event of nextEvents" (click)="showDetails(event)">
-      <ion-img [src]="event.image"></ion-img>
+      <ion-img [src]="event.thumbnail"></ion-img>
       <ion-card-content>
         <ion-card-title>{{event.title}}</ion-card-title>
       </ion-card-content>

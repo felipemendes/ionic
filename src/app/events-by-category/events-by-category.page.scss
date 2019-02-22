@@ -9,8 +9,8 @@ ion-content {
             margin-bottom: 0;
             padding: 0 16px;
         }
-        ion-icon {
-            position: absolute;
+        .dismiss {
+            position: fixed;
             right: 20px;
             top: 20px;
             float: right;

@@ -50,10 +50,12 @@ ion-tab-bar {
 
 ion-slide {
     flex-direction: column;
+    margin: 0 16px;
     .sc-ion-card-ios-h,
     .sc-ion-card-md-h {
-        margin-bottom: 0;
         height: 200px;
+        width: 100%;
+        margin-bottom: 0;
         border-top: 4px solid var(--ion-color-primary);
         ion-img {
             height: 100%;
@@ -62,7 +64,7 @@ ion-slide {
     }
     .event-title {
         margin: 10px 0 25px 0;
-        padding: 0 16px;
+        padding: 0 10px;
         color: #fff;
         font-size: 16px;
         font-weight: 600;

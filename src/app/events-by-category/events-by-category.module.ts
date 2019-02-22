@@ -8,19 +8,19 @@ import { IonicModule } from '@ionic/angular';
 import { EventsByCategoryPage } from './events-by-category.page';
 
 const routes: Routes = [
-  {
-    path: '',
-    component: EventsByCategoryPage
-  }
+    {
+        path: '',
+        component: EventsByCategoryPage
+    }
 ];
 
 @NgModule({
-  imports: [
-    CommonModule,
-    FormsModule,
-    IonicModule,
-    RouterModule.forChild(routes)
-  ],
-  declarations: [EventsByCategoryPage]
+    imports: [
+        CommonModule,
+        FormsModule,
+        IonicModule,
+        RouterModule.forChild(routes)
+    ],
+    declarations: [EventsByCategoryPage]
 })
 export class EventsByCategoryPageModule {}

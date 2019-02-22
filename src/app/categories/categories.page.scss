@@ -1,10 +1,20 @@
-ion-card {
-    .card-content-ios,
-    .card-content-md {
-        background: var(--shadow);
-        ion-card-title {
-            color: #fff;
-            font-size: 26px;
+.categories {
+    margin-top: 30px;
+
+    .sc-ion-card-ios-h,
+    .sc-ion-card-md-h {
+        margin: 16px;
+        border-radius: 8px;
+
+        .card-content-ios,
+        .card-content-md {
+            background: var(--shadow);
+            padding: 20px;
+            ion-card-title {
+                color: #fff;
+                font-size: 26px;
+                font-weight: 600;
+            }
         }
     }
 }

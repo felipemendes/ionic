@@ -1,1 +1,32 @@
 
+$featured-active: url(../../assets/icon/featured.png);
+$events-active: url(../../assets/icon/events.png);
+$city-active: url(../../assets/icon/city.png);
+$categories-active: url(../../assets/icon/categories.png);
+
+ion-icon {
+    &[class*="icon-"] {
+      mask-size: contain;
+      mask-position: 50% 50%;
+      mask-repeat: no-repeat;
+      background: currentColor;
+      width: 1em;
+      height: 1em;
+    }
+
+    &[class*="icon-featured"] {
+        mask-image: $featured-active;
+    }
+
+    &[class*="icon-events"] {
+        mask-image: $events-active;
+    }
+
+    &[class*="icon-city"] {
+        mask-image: $city-active;
+    }
+
+    &[class*="icon-categories"] {
+        mask-image: $categories-active;
+    }
+}

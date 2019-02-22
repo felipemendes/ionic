@@ -1,9 +1,55 @@
 <ion-content>
-  <ion-card>
-    <ion-img [src]="event.image"></ion-img>
-    <ion-card-content>
-      <ion-card-title>{{event.title}}</ion-card-title>
-    </ion-card-content>
-  </ion-card>
+    <ion-icon name="close-circle-outline" size="large" class="dismiss" (click)="dismiss()"></ion-icon>
+    <ion-img [src]="event.image" class="featured-image"></ion-img>
+
+    <div class="content">
+        <div class="title" margin>
+            <div>
+                <p>{{event.title}}</p>
+            </div>
+        </div>
+        <div class="item" margin>
+            <ion-img src="assets/icon/info.png"></ion-img>
+            <div>
+                <span>Descrição</span>
+                <p>{{event.about}}</p>
+            </div>
+        </div>
+        <div class="item" margin>
+            <ion-img src="assets/icon/date.png"></ion-img>
+            <div>
+                <span>Data</span>
+                <p>{{event.date}}</p>
+            </div>
+        </div>
+        <div class="item" margin>
+            <ion-img src="assets/icon/price.png"></ion-img>
+            <div>
+                <span>Preço</span>
+                <p>{{event.price}}</p>
+            </div>
+        </div>
+        <div class="item" margin>
+            <ion-img src="assets/icon/address.png"></ion-img>
+            <div>
+                <span>Endereço</span>
+                <p>{{event.address}}</p>
+            </div>
+        </div>
+        <div class="item" margin>
+            <ion-img src="assets/icon/ticket.png"></ion-img>
+            <div>
+                <span>Onde comprar</span>
+                <p>{{event.where_to_buy.title}}</p>
+            </div>
+        </div>
+        <div class="item" margin>
+            <ion-img src="assets/icon/phone.png"></ion-img>
+            <div>
+                <span>Informações</span>
+                <p>{{event.contact}}</p>
+            </div>
+        </div>
+    </div>
 </ion-content>
   

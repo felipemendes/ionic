@@ -13,7 +13,7 @@
       <ion-slides [options]="sliderConfig" *ngIf="event.city.slug == city.slug">
         <ion-slide (click)="showDetails(event)">
           <ion-card>
-            <ion-img [src]="event.image"></ion-img>
+            <ion-img [src]="event.thumbnail"></ion-img>
           </ion-card>
           <p class="event-title" text-left>{{event.title}}</p>
         </ion-slide>

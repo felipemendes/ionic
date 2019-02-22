@@ -6,12 +6,12 @@ import { FormsModule } from '@angular/forms';
 import { NextEventsPage } from './next-events.page';
 
 @NgModule({
-  imports: [
-    IonicModule,
-    CommonModule,
-    FormsModule,
-    RouterModule.forChild([{ path: '', component: NextEventsPage }])
-  ],
-  declarations: [NextEventsPage]
+    imports: [
+        IonicModule,
+        CommonModule,
+        FormsModule,
+        RouterModule.forChild([{ path: '', component: NextEventsPage }])
+    ],
+    declarations: [NextEventsPage]
 })
 export class NextEventsPageModule {}

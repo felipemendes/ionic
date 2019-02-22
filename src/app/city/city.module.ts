@@ -6,12 +6,12 @@ import { FormsModule } from '@angular/forms';
 import { CityPage } from './city.page';
 
 @NgModule({
-  imports: [
-    IonicModule,
-    CommonModule,
-    FormsModule,
-    RouterModule.forChild([{ path: '', component: CityPage }])
-  ],
-  declarations: [CityPage]
+    imports: [
+        IonicModule,
+        CommonModule,
+        FormsModule,
+        RouterModule.forChild([{ path: '', component: CityPage }])
+    ],
+    declarations: [CityPage]
 })
 export class CityPageModule {}
