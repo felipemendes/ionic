@@ -1,24 +1,24 @@
 <ion-content>
+    <ion-icon name="help-circle-outline" size="large" class="settings_menu" (click)="settings_menu()"></ion-icon>
+    <div class="header">
+        <ion-img src="assets/img/logo-white.png" class="logo"></ion-img>
+    </div>
 
-  <div class="header">
-    <ion-img src="assets/img/logo-white.png" class="logo"></ion-img>
-  </div>
+    <p class="title">Em cada cidade</p>
 
-  <p class="title">Em cada cidade</p>
+    <div class="city" *ngFor="let city of cities">
+        <p class="title city-title">{{city.title}}</p>
 
-  <div class="city" *ngFor="let city of cities">
-    <p class="title city-title">{{city.title}}</p>
-
-    <ng-container *ngFor="let event of events">
-      <ion-slides [options]="sliderConfig" *ngIf="event.city.slug == city.slug">
-        <ion-slide (click)="showDetails(event)">
-          <ion-card>
-            <ion-img [src]="event.thumbnail"></ion-img>
-          </ion-card>
-          <p class="event-title" text-left>{{event.title}}</p>
-        </ion-slide>
-      </ion-slides>
-    </ng-container>
-  </div>
+        <ng-container *ngFor="let event of events">
+        <ion-slides [options]="sliderConfig" *ngIf="event.city.slug == city.slug">
+            <ion-slide (click)="showDetails(event)">
+            <ion-card>
+                <ion-img [src]="event.thumbnail"></ion-img>
+            </ion-card>
+            <p class="event-title" text-left>{{event.title}}</p>
+            </ion-slide>
+        </ion-slides>
+        </ng-container>
+    </div>
 
 </ion-content>

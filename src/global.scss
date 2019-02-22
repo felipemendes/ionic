@@ -26,6 +26,14 @@
     }
 }
 
+.settings_menu {
+    position: absolute;
+    right: 30px;
+    top: 20px;
+    color: #fff;
+    z-index: 1;
+}
+
 /** content **/
 
 ion-content {

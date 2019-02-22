@@ -1,6 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { EventsService } from '../events.service';
-import { ModalController } from '@ionic/angular';
+import { ModalController, ActionSheetController } from '@ionic/angular';
 import { DetailsPage } from '../details/details.page';
 
 @Component({
@@ -17,7 +17,7 @@ export class FeaturedPage implements OnInit {
     featuredEvents: any = [];
     trendingEvents: any = [];
 
-    constructor(public modalController: ModalController, private eventsService: EventsService) {}
+    constructor(public actionSheetController: ActionSheetController, public modalController: ModalController, private eventsService: EventsService) {}
 
     ngOnInit() {
         this.eventsService
@@ -41,5 +41,33 @@ export class FeaturedPage implements OnInit {
             }
         });
         return await modal.present();
+    }
+
+    async settings_menu() {
+        const actionSheet = await this.actionSheetController.create({
+            buttons: [
+                {
+                    text: 'Sobre',
+                    icon: 'help',
+                    handler: () => {
+                        console.log('Sobre clicked');
+                    }
+                }, {
+                    text: 'Sair',
+                    icon: 'exit',
+                    handler: () => {
+                        console.log('Sair clicked');
+                    }
+                }, {
+                    text: 'Cancelar',
+                    icon: 'close',
+                    role: 'cancel',
+                    handler: () => {
+                        console.log('Cancel clicked');
+                    }
+                }
+            ]
+        });
+        await actionSheet.present();
     }
 }

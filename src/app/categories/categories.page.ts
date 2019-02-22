@@ -1,5 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import { ModalController } from "@ionic/angular";
+import { ModalController, ActionSheetController } from '@ionic/angular';
 import { CategoriesService } from '../categories.service';
 import { EventsByCategoryPage } from '../events-by-category/events-by-category.page';
 
@@ -11,7 +11,7 @@ import { EventsByCategoryPage } from '../events-by-category/events-by-category.p
 export class CategoriesPage implements OnInit {
     categories: any = [];
 
-    constructor(public modalController: ModalController, private categoriesService: CategoriesService) {}
+    constructor(public actionSheetController: ActionSheetController, public modalController: ModalController, private categoriesService: CategoriesService) {}
 
     ngOnInit() {
         this.categoriesService
@@ -29,5 +29,33 @@ export class CategoriesPage implements OnInit {
             }
         });
         return await modal.present();
+    }
+    
+    async settings_menu() {
+        const actionSheet = await this.actionSheetController.create({
+            buttons: [
+                {
+                    text: 'Sobre',
+                    icon: 'help',
+                    handler: () => {
+                        console.log('Sobre clicked');
+                    }
+                }, {
+                    text: 'Sair',
+                    icon: 'exit',
+                    handler: () => {
+                        console.log('Sair clicked');
+                    }
+                }, {
+                    text: 'Cancelar',
+                    icon: 'close',
+                    role: 'cancel',
+                    handler: () => {
+                        console.log('Cancel clicked');
+                    }
+                }
+            ]
+        });
+        await actionSheet.present();
     }
 }

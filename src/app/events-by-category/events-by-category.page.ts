@@ -24,7 +24,6 @@ export class EventsByCategoryPage implements OnInit {
 
     ionViewWillEnter() {
         this.category = this.navParams.get('category');
-        console.log(this.category.title);
     }
 
     async dismiss() {

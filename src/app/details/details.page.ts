@@ -17,8 +17,7 @@ export class DetailsPage implements OnInit {
     }
 
     ionViewWillEnter() {
-        this.event = this.navParams.get('event'); 
-        console.log(this.event.title);
+        this.event = this.navParams.get('event');
     }
 
     async dismiss() {
