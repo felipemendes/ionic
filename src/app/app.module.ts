@@ -13,9 +13,21 @@ import { EventsByCategoryPage } from './events-by-category/events-by-category.pa
 import { DetailsPage } from './details/details.page';
 
 @NgModule({
-    declarations: [AppComponent, DetailsPage, EventsByCategoryPage],
-    entryComponents: [DetailsPage, EventsByCategoryPage],
-    imports: [BrowserModule, IonicModule.forRoot(), AppRoutingModule, HttpClientModule],
+    declarations: [
+        AppComponent,
+        DetailsPage,
+        EventsByCategoryPage
+    ],
+    entryComponents: [
+        DetailsPage, 
+        EventsByCategoryPage
+    ],
+    imports: [
+        BrowserModule, 
+        IonicModule.forRoot(), 
+        AppRoutingModule, 
+        HttpClientModule
+    ],
     providers: [
         StatusBar,
         SplashScreen,

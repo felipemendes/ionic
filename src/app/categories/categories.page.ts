@@ -21,12 +21,11 @@ export class CategoriesPage implements OnInit {
         })
     }
 
-    async showEvents(categorySlug:string, categoryTitle:string) {
+    async showEvents(category: any) {
         const modal = await this.modalController.create({
             component: EventsByCategoryPage,
             componentProps: {
-                categorySlug: categorySlug,
-                categoryTitle: categoryTitle
+                category: category
             }
         });
         return await modal.present();

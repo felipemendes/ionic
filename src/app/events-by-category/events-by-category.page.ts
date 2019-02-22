@@ -9,24 +9,22 @@ import { DetailsPage } from '../details/details.page';
     styleUrls: ['./events-by-category.page.scss'],
 })
 export class EventsByCategoryPage implements OnInit {
-    categorySlug: any;
-    categoryTitle: any;
+    category: any;
     events: any;
 
     constructor(private modalController: ModalController, private navParams: NavParams, private eventsService: EventsService) { }
 
     ngOnInit() {
         this.eventsService
-            .fetchFeed(`events?category=${this.categorySlug}`)
+            .fetchFeed(`events?category=${this.category.slug}`)
             .subscribe(data => {
                 this.events = data;
             })
     }
 
     ionViewWillEnter() {
-        this.categorySlug = this.navParams.get('categorySlug');
-        this.categoryTitle = this.navParams.get('categoryTitle');
-        console.log(this.categoryTitle);
+        this.category = this.navParams.get('category');
+        console.log(this.category.title);
     }
 
     async dismiss() {
