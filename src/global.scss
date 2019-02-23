@@ -10,20 +10,22 @@
 @import '~@ionic/angular/css/text-transformation.css';
 @import '~@ionic/angular/css/flex-utils.css';
 
+/** app **/
+ion-app {
+    background-color: var(--dark);
+}
+
 /** header **/
 
-.header {
-    position: fixed;
-    width: 100%;
-    height: 125px;
-    z-index: 2;
-    background: #FF0099;
-    background-image:  var(--ion-color-primary-gradient);
-    border-radius: 0 0 80% 10% / 0% 0% 90% 40%;
-    box-shadow: -2vmin 2vmin 0 var(--shadow);
-    .logo {
-        width: 190px;
-        padding: 55px 20px 0 22px;
+ion-header {
+    ion-toolbar {
+        height: 120px;
+        border-radius: 0 0 80% 10% / 0% 0% 90% 40%;
+        box-shadow: -2vmin 2vmin 0 var(--shadow);
+        .logo {
+            width: 190px;
+            padding: 55px 20px 0 22px;
+        }
     }
 }
 
@@ -47,9 +49,6 @@ ion-content {
         margin-bottom: 0;
         padding: 0 16px;
     }
-    .app-content {
-        padding-top: 125px;
-    }
 }
 
 /** tab bar **/
@@ -62,7 +61,7 @@ ion-tab-bar {
 
 ion-slide {
     flex-direction: column;
-    margin: 0 16px;
+    padding: 0 16px;
     .sc-ion-card-ios-h,
     .sc-ion-card-md-h {
         height: 200px;
@@ -88,14 +87,11 @@ ion-slide {
 
 .list-card {
     ion-card {
-        ion-img {
-            max-height: 300px;
-            object-fit: cover;
-        }
         .card-content-ios,
         .card-content-md {
+            margin-top: -4px;
             padding: 8px 12px;
-            background: var(--ion-color-primary-gradient);
+            background: var(--ion-color-primary);
             ion-card-title {
                 font-size: 16px;
                 font-weight: 600;

@@ -1,42 +1,35 @@
 <ion-header>
-    <ion-toolbar>
-        <ion-title>details</ion-title>
-        <ion-title>
-            {{event.title}}
-        </ion-title>
+    <ion-toolbar [color]="toolbarColor">
+        <ion-icon name="help-circle-outline" size="large" class="settings_menu" (click)="settings_menu()"></ion-icon>
+        <ion-img src="assets/img/logo-white.png" class="logo"></ion-img>
     </ion-toolbar>
 </ion-header>
 
 <ion-content>
-    <ion-icon name="help-circle-outline" size="large" class="settings_menu" (click)="settings_menu()"></ion-icon>
-    <div class="header">
-      <ion-img src="assets/img/logo-white.png" class="logo"></ion-img>
-    </div>
-  
     <div class="app-content">
         <div *ngIf="featuredEvents.length > 0">
-        <p class="title">Destaques</p>
-    
-        <ion-slides [options]="sliderConfig">
-            <ion-slide *ngFor="let event of featuredEvents" (click)="showDetails(event)">
-            <ion-card>
-                <ion-img [src]="event.thumbnail"></ion-img>
-            </ion-card>
-            <p class="event-title" text-left>{{event.title}}</p>
-            </ion-slide>
-        </ion-slides>
+            <p class="title">Destaques</p>
+        
+            <ion-slides [options]="sliderConfig">
+                <ion-slide *ngFor="let event of featuredEvents" (click)="showDetails(event)">
+                <ion-card>
+                    <ion-img [src]="event.thumbnail"></ion-img>
+                </ion-card>
+                <p class="event-title" text-left>{{event.title}}</p>
+                </ion-slide>
+            </ion-slides>
         </div>
     
         <div *ngIf="trendingEvents.length > 0" class="list-card">
-        <p class="title" margin-top>Em alta</p>
-    
-        <ion-card *ngFor="let event of trendingEvents" (click)="showDetails(event)">
-            <ion-img [src]="event.thumbnail"></ion-img>
-            <ion-card-content>
-            <ion-card-title>{{event.title}}</ion-card-title>
-            </ion-card-content>
-        </ion-card>
+            <p class="title" margin-top>Em alta</p>
+        
+            <ion-card *ngFor="let event of trendingEvents" (click)="showDetails(event)">
+                <ion-img [src]="event.thumbnail"></ion-img>
+                <ion-card-content>
+                <ion-card-title>{{event.title}}</ion-card-title>
+                </ion-card-content>
+            </ion-card>
         </div>
     </div>
-  </ion-content>
+</ion-content>
   

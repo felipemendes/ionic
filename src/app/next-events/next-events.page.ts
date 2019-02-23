@@ -15,10 +15,13 @@ export class NextEventsPage implements OnInit {
         slidesPerView: 1.2
     };
 
+    toolbarColor: string;
     todayEvents: any = [];
     nextEvents: any = [];
 
-    constructor(private iab: InAppBrowser, public actionSheetController: ActionSheetController, public modalController: ModalController, private eventsService: EventsService) {}
+    constructor(private iab: InAppBrowser, public actionSheetController: ActionSheetController, public modalController: ModalController, private eventsService: EventsService) {
+        this.toolbarColor = 'primary';
+    }
 
     ngOnInit() {
         this.eventsService

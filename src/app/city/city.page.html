@@ -1,9 +1,11 @@
-<ion-content>
-    <ion-icon name="help-circle-outline" size="large" class="settings_menu" (click)="settings_menu()"></ion-icon>
-    <div class="header">
+<ion-header>
+    <ion-toolbar [color]="toolbarColor">
+        <ion-icon name="help-circle-outline" size="large" class="settings_menu" (click)="settings_menu()"></ion-icon>
         <ion-img src="assets/img/logo-white.png" class="logo"></ion-img>
-    </div>
+    </ion-toolbar>
+</ion-header>
 
+<ion-content>
     <div class="app-content">
         <p class="title">Em cada cidade</p>
 

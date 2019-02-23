@@ -10,9 +10,13 @@ import { EventsByCategoryPage } from '../events-by-category/events-by-category.p
     styleUrls: ['categories.page.scss']
 })
 export class CategoriesPage implements OnInit {
+    
+    toolbarColor: string;
     categories: any = [];
 
-    constructor(private iab: InAppBrowser, public actionSheetController: ActionSheetController, public modalController: ModalController, private categoriesService: CategoriesService) {}
+    constructor(private iab: InAppBrowser, public actionSheetController: ActionSheetController, public modalController: ModalController, private categoriesService: CategoriesService) {
+        this.toolbarColor = 'primary';
+    }
 
     ngOnInit() {
         this.categoriesService

@@ -16,10 +16,13 @@ export class CityPage implements OnInit {
         slidesPerView: 1.2
     };
 
+    toolbarColor: string;
     cities: any = [];
     events: any = [];
     
-    constructor(private iab: InAppBrowser, public actionSheetController: ActionSheetController, public modalController: ModalController, private citiesService: CitiesService, private eventsService: EventsService) {}
+    constructor(private iab: InAppBrowser, public actionSheetController: ActionSheetController, public modalController: ModalController, private citiesService: CitiesService, private eventsService: EventsService) {
+        this.toolbarColor = 'primary';
+    }
 
     ngOnInit() {
         this.citiesService

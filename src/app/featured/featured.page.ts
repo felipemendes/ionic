@@ -15,10 +15,13 @@ export class FeaturedPage implements OnInit {
         slidesPerView: 1.2
     };
 
+    toolbarColor: string;
     featuredEvents: any = [];
     trendingEvents: any = [];
 
-    constructor(private iab: InAppBrowser, public actionSheetController: ActionSheetController, public modalController: ModalController, private eventsService: EventsService) {}
+    constructor(private iab: InAppBrowser, public actionSheetController: ActionSheetController, public modalController: ModalController, private eventsService: EventsService) {
+        this.toolbarColor = 'primary';
+    }
 
     ngOnInit() {
         this.eventsService
