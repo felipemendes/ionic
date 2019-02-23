@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { ModalController, ActionSheetController } from '@ionic/angular';
+import { InAppBrowser } from '@ionic-native/in-app-browser/ngx';
 import { CategoriesService } from '../categories.service';
 import { EventsByCategoryPage } from '../events-by-category/events-by-category.page';
 
@@ -11,7 +12,7 @@ import { EventsByCategoryPage } from '../events-by-category/events-by-category.p
 export class CategoriesPage implements OnInit {
     categories: any = [];
 
-    constructor(public actionSheetController: ActionSheetController, public modalController: ModalController, private categoriesService: CategoriesService) {}
+    constructor(private iab: InAppBrowser, public actionSheetController: ActionSheetController, public modalController: ModalController, private categoriesService: CategoriesService) {}
 
     ngOnInit() {
         this.categoriesService
@@ -38,15 +39,10 @@ export class CategoriesPage implements OnInit {
                     text: 'Sobre',
                     icon: 'help',
                     handler: () => {
-                        console.log('Sobre clicked');
+                        const browser = this.iab.create('https://google.com');
+                        browser.show();
                     }
-                }, {
-                    text: 'Sair',
-                    icon: 'exit',
-                    handler: () => {
-                        console.log('Sair clicked');
-                    }
-                }, {
+                },{
                     text: 'Cancelar',
                     icon: 'close',
                     role: 'cancel',

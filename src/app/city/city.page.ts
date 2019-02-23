@@ -1,7 +1,8 @@
 import { Component, OnInit } from '@angular/core';
+import { ModalController, ActionSheetController } from '@ionic/angular';
+import { InAppBrowser } from '@ionic-native/in-app-browser/ngx';
 import { EventsService } from '../events.service';
 import { CitiesService } from '../cities.service';
-import { ModalController, ActionSheetController } from '@ionic/angular';
 import { DetailsPage } from '../details/details.page';
 
 @Component({
@@ -18,7 +19,7 @@ export class CityPage implements OnInit {
     cities: any = [];
     events: any = [];
     
-    constructor(public actionSheetController: ActionSheetController, public modalController: ModalController, private citiesService: CitiesService, private eventsService: EventsService) {}
+    constructor(private iab: InAppBrowser, public actionSheetController: ActionSheetController, public modalController: ModalController, private citiesService: CitiesService, private eventsService: EventsService) {}
 
     ngOnInit() {
         this.citiesService
@@ -51,15 +52,10 @@ export class CityPage implements OnInit {
                     text: 'Sobre',
                     icon: 'help',
                     handler: () => {
-                        console.log('Sobre clicked');
+                        const browser = this.iab.create('https://google.com');
+                        browser.show();
                     }
-                }, {
-                    text: 'Sair',
-                    icon: 'exit',
-                    handler: () => {
-                        console.log('Sair clicked');
-                    }
-                }, {
+                },{
                     text: 'Cancelar',
                     icon: 'close',
                     role: 'cancel',

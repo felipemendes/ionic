@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
-import { EventsService } from '../events.service';
 import { ModalController, ActionSheetController } from '@ionic/angular';
+import { InAppBrowser } from '@ionic-native/in-app-browser/ngx';
+import { EventsService } from '../events.service';
 import { DetailsPage } from '../details/details.page';
 
 @Component({
@@ -17,7 +18,7 @@ export class NextEventsPage implements OnInit {
     todayEvents: any = [];
     nextEvents: any = [];
 
-    constructor(public actionSheetController: ActionSheetController, public modalController: ModalController, private eventsService: EventsService) {}
+    constructor(private iab: InAppBrowser, public actionSheetController: ActionSheetController, public modalController: ModalController, private eventsService: EventsService) {}
 
     ngOnInit() {
         this.eventsService
@@ -50,15 +51,10 @@ export class NextEventsPage implements OnInit {
                     text: 'Sobre',
                     icon: 'help',
                     handler: () => {
-                        console.log('Sobre clicked');
+                        const browser = this.iab.create('https://google.com');
+                        browser.show();
                     }
-                }, {
-                    text: 'Sair',
-                    icon: 'exit',
-                    handler: () => {
-                        console.log('Sair clicked');
-                    }
-                }, {
+                },{
                     text: 'Cancelar',
                     icon: 'close',
                     role: 'cancel',
