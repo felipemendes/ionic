@@ -1,6 +1,6 @@
 {
     "appId": "io.purai.app",
-    "appName": "PurAi",
+    "appName": "PurAí",
     "bundledWebRuntime": false,
     "webDir": "www"
 }
