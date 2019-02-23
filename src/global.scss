@@ -13,25 +13,26 @@
 /** header **/
 
 .header {
+    position: fixed;
     width: 100%;
     height: 125px;
+    z-index: 2;
     background: #FF0099;
     background-image:  var(--ion-color-primary-gradient);
     border-radius: 0 0 80% 10% / 0% 0% 90% 40%;
     box-shadow: -2vmin 2vmin 0 var(--shadow);
     .logo {
-        width: 180px;
-        height: fit-content;
-        padding: 45px 16px 0 16px;
+        width: 190px;
+        padding: 55px 20px 0 22px;
     }
 }
 
 .settings_menu {
-    position: absolute;
+    position: fixed;
+    z-index: 3;
     right: 30px;
     top: 20px;
     color: #fff;
-    z-index: 1;
 }
 
 /** content **/
@@ -45,6 +46,9 @@ ion-content {
         width: 100%;
         margin-bottom: 0;
         padding: 0 16px;
+    }
+    .app-content {
+        padding-top: 125px;
     }
 }
 

@@ -4,11 +4,13 @@
         <ion-img src="assets/img/logo-white.png" class="logo"></ion-img>
     </div>
     
-    <div class="categories">
-        <ion-card *ngFor="let category of categories" (click)="showEvents(category)">
-            <ion-card-content>
-                <ion-card-title>{{category.title}}</ion-card-title>
-            </ion-card-content>
-        </ion-card>
+    <div class="app-content">
+        <div class="categories">
+            <ion-card *ngFor="let category of categories" (click)="showEvents(category)">
+                <ion-card-content>
+                    <ion-card-title>{{category.title}}</ion-card-title>
+                </ion-card-content>
+            </ion-card>
+        </div>
     </div>
 </ion-content>
