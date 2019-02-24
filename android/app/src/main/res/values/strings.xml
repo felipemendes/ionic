@@ -1,8 +1,0 @@
-<?xml version='1.0' encoding='utf-8'?>
-<resources>
-    <string name="app_name">PurAi</string>
-    <string name="title_activity_main">PurAi</string>
-    <string name="package_name">io.purai.app</string>
-    <string name="fileprovider_authority">io.purai.app.fileprovider</string>
-    <string name="custom_url_scheme">io.purai.app</string>
-</resources>

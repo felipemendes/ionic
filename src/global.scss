@@ -19,12 +19,9 @@ ion-app {
 
 ion-header {
     ion-toolbar {
-        height: 120px;
-        border-radius: 0 0 80% 10% / 0% 0% 90% 40%;
-        box-shadow: -2vmin 2vmin 0 var(--shadow);
         .logo {
-            width: 190px;
-            padding: 55px 20px 0 22px;
+            width: 50%;
+            padding: 30px 20px 10px 20px;
         }
     }
 }
@@ -33,7 +30,7 @@ ion-header {
     position: fixed;
     z-index: 3;
     right: 30px;
-    top: 20px;
+    top: 40px;
     color: #fff;
 }
 
