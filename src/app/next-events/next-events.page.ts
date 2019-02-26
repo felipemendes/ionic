@@ -1,7 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { ModalController, ActionSheetController } from '@ionic/angular';
 import { InAppBrowser } from '@ionic-native/in-app-browser/ngx';
-import { EventsService } from '../events.service';
+import { EventsService } from '../services/events.service';
 import { DetailsPage } from '../details/details.page';
 
 @Component({

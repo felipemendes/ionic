@@ -30,8 +30,10 @@ ion-header {
     position: fixed;
     z-index: 3;
     right: 30px;
-    top: 40px;
+    top: 35px;
+    font-size: 35px;
     color: #fff;
+    mix-blend-mode: difference;
 }
 
 /** content **/

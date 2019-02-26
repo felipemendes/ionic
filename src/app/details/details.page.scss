@@ -1,8 +1,10 @@
 .dismiss {
     position: fixed;
     right: 30px;
-    top: 40px;
+    top: 35px;
+    font-size: 35px;
     color: #fff;
+    mix-blend-mode: difference;
     z-index: 1;
 }
 .featured-image {
@@ -30,4 +32,8 @@
             font-weight: 700;
         }
     }
+}
+
+#map_canvas {
+    height: 90px;
 }

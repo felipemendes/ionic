@@ -1,5 +1,4 @@
-import { Component, OnInit } from '@angular/core';
-import { EventsService } from '../events.service';
+import { Component } from '@angular/core';
 import { NavParams, ModalController } from '@ionic/angular';
 
 @Component({
@@ -7,14 +6,10 @@ import { NavParams, ModalController } from '@ionic/angular';
     templateUrl: './details.page.html',
     styleUrls: ['./details.page.scss'],
 })
-export class DetailsPage implements OnInit {
+export class DetailsPage {
     event: any;
 
-    constructor(private modalController: ModalController, private navParams: NavParams, private eventService: EventsService) { }
-
-    ngOnInit() {
-        this.event = this.eventService.currentEvent;
-    }
+    constructor(private modalController: ModalController, private navParams: NavParams) { }
 
     ionViewWillEnter() {
         this.event = this.navParams.get('event');

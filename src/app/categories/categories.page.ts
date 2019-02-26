@@ -1,7 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { ModalController, ActionSheetController } from '@ionic/angular';
 import { InAppBrowser } from '@ionic-native/in-app-browser/ngx';
-import { CategoriesService } from '../categories.service';
+import { CategoriesService } from '../services/categories.service';
 import { EventsByCategoryPage } from '../events-by-category/events-by-category.page';
 
 @Component({

@@ -1,6 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { NavParams, ModalController } from '@ionic/angular';
-import { EventsService } from '../events.service';
+import { EventsService } from '../services/events.service';
 import { DetailsPage } from '../details/details.page';
 
 @Component({
