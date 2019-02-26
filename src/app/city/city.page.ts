@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
-import { ModalController, ActionSheetController } from '@ionic/angular';
+import { ModalController, ActionSheetController, NavController } from '@ionic/angular';
+import { Storage } from '@ionic/storage';
 import { InAppBrowser } from '@ionic-native/in-app-browser/ngx';
 import { EventsService } from '../services/events.service';
 import { CitiesService } from '../services/cities.service';
@@ -20,7 +21,7 @@ export class CityPage implements OnInit {
     cities: any = [];
     events: any = [];
     
-    constructor(private iab: InAppBrowser, public actionSheetController: ActionSheetController, public modalController: ModalController, private citiesService: CitiesService, private eventsService: EventsService) {
+    constructor(private iab: InAppBrowser, public actionSheetController: ActionSheetController, public modalController: ModalController, private citiesService: CitiesService, private eventsService: EventsService, public navController: NavController, public storage: Storage) {
         this.toolbarColor = 'primary';
     }
 
@@ -59,12 +60,20 @@ export class CityPage implements OnInit {
                         browser.show();
                     }
                 },{
+                    text: 'Sair',
+                    icon: 'log-out',
+                    handler: () => {
+                        this.storage.get('intro-done6').then(done => {
+                            if (done) {
+                                this.storage.set('intro-done6', true);
+                                this.navController.navigateRoot('/intro');
+                            }
+                        });
+                    }
+                },{
                     text: 'Cancelar',
                     icon: 'close',
-                    role: 'cancel',
-                    handler: () => {
-                        console.log('Cancel clicked');
-                    }
+                    role: 'cancel'
                 }
             ]
         });

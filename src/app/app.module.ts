@@ -12,6 +12,9 @@ import { HttpClientModule } from '@angular/common/http';
 import { EventsByCategoryPage } from './events-by-category/events-by-category.page';
 import { DetailsPage } from './details/details.page';
 
+import { IonicStorageModule } from '@ionic/storage';
+import { IntroPage } from './intro/intro.page';
+
 @NgModule({
     declarations: [
         AppComponent,
@@ -26,7 +29,8 @@ import { DetailsPage } from './details/details.page';
         BrowserModule, 
         IonicModule.forRoot(), 
         AppRoutingModule, 
-        HttpClientModule
+        HttpClientModule,
+        IonicStorageModule.forRoot()
     ],
     providers: [
         StatusBar,

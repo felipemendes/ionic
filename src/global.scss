@@ -54,6 +54,10 @@ ion-content {
 
 ion-tab-bar {
     --background:var(--dark);
+    height: 55px;
+    ion-icon {
+        margin: 0;
+    }
 }
 
 /** slide **/
