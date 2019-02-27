@@ -12,6 +12,7 @@
     object-fit: cover;
 }
 .content {
+    position: relative;
     .item {
         display: flex;
         align-items: start;
@@ -30,6 +31,33 @@
             color: #fff;
             font-size: 18px;
             font-weight: 700;
+        }
+    }
+    .social-sharing {
+        position: absolute;
+        top: -35px;
+        width: 100%;
+        display: flex;
+        justify-content: center;
+        ion-icon {
+            font-size: 28px;
+            background: #fff;
+            padding: 6px;
+            border-radius: 50%;
+            margin: 0 10px;
+            box-shadow: -1px 1px 1px 0px #232323;
+            &.whatsapp {
+                color: #25d366;
+            }
+            &.facebook {
+                color: #3b5998;
+            }
+            &.twitter {
+                color: #1da1f2;
+            }
+            &.mail {
+                color: #657786;
+            }
         }
     }
 }

@@ -1,8 +1,15 @@
 <ion-content>
     <ion-icon name="close-circle-outline" class="dismiss" (click)="dismiss()"></ion-icon>
     <ion-img [src]="event.image" class="featured-image"></ion-img>
-
+    
     <div class="content">
+        <div class="social-sharing">
+            <ion-icon name="logo-whatsapp" class="whatsapp" (click)="shareWhatsApp()"></ion-icon>
+            <ion-icon name="logo-facebook" class="facebook" (click)="shareFacebook()"></ion-icon>
+            <ion-icon name="logo-twitter" class="twitter" (click)="shareTwitter()"></ion-icon>
+            <ion-icon name="mail" class-="mail" (click)="shareEmail()"></ion-icon>
+        </div>
+
         <div class="title" *ngIf="event.title.length > 0" margin>
             <div>
                 <p>{{event.title}}</p>

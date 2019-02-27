@@ -46,7 +46,7 @@ ion-content {
         font-weight: 600;
         width: 100%;
         margin-bottom: 0;
-        padding: 0 16px;
+        padding: 1px 16px 0 16px;
     }
 }
 
@@ -57,6 +57,7 @@ ion-tab-bar {
     height: 55px;
     ion-icon {
         margin: 0;
+        font-size: 30px;
     }
 }
 

@@ -2,6 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import { ModalController, ActionSheetController, NavController } from '@ionic/angular';
 import { InAppBrowser } from '@ionic-native/in-app-browser/ngx';
 import { Storage } from '@ionic/storage';
+import { SocialSharing } from '@ionic-native/social-sharing/ngx';
 import { CategoriesService } from '../services/categories.service';
 import { EventsByCategoryPage } from '../events-by-category/events-by-category.page';
 
@@ -15,7 +16,7 @@ export class CategoriesPage implements OnInit {
     toolbarColor: string;
     categories: any = [];
 
-    constructor(private iab: InAppBrowser, public actionSheetController: ActionSheetController, public modalController: ModalController, private categoriesService: CategoriesService, public navController: NavController, public storage: Storage) {
+    constructor(private iab: InAppBrowser, public actionSheetController: ActionSheetController, public modalController: ModalController, private categoriesService: CategoriesService, public navController: NavController, public storage: Storage, private socialSharing: SocialSharing) {
         this.toolbarColor = 'primary';
     }
 
@@ -42,10 +43,16 @@ export class CategoriesPage implements OnInit {
             buttons: [
                 {
                     text: 'Sobre',
-                    icon: 'help',
+                    icon: 'information-circle-outline',
                     handler: () => {
                         const browser = this.iab.create('https://google.com');
                         browser.show();
+                    }
+                },{
+                    text: 'Sugerir evento',
+                    icon: 'checkmark-circle-outline',
+                    handler: () => {
+                        this.shareEmail()
                     }
                 },{
                     text: 'Sair',
@@ -66,5 +73,13 @@ export class CategoriesPage implements OnInit {
             ]
         });
         await actionSheet.present();
+    }
+
+    async shareEmail() {
+        this.socialSharing.shareViaEmail(null, 'Sugestão de evento - PurAí', ['felipemendes@me.com'], null, null, null).then(() => {
+          // Success
+        }).catch((e) => {
+          // Error!
+        });
     }
 }

@@ -9,11 +9,11 @@ import { StatusBar } from '@ionic-native/status-bar/ngx';
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
 import { HttpClientModule } from '@angular/common/http';
+import { SocialSharing } from '@ionic-native/social-sharing/ngx';
+
 import { EventsByCategoryPage } from './events-by-category/events-by-category.page';
 import { DetailsPage } from './details/details.page';
-
 import { IonicStorageModule } from '@ionic/storage';
-import { IntroPage } from './intro/intro.page';
 
 @NgModule({
     declarations: [
@@ -33,6 +33,7 @@ import { IntroPage } from './intro/intro.page';
         IonicStorageModule.forRoot()
     ],
     providers: [
+        SocialSharing,
         StatusBar,
         SplashScreen,
         { provide: RouteReuseStrategy, useClass: IonicRouteStrategy }
