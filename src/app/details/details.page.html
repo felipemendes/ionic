@@ -36,6 +36,13 @@
                 <p>{{event.price}}</p>
             </div>
         </div>
+        <div class="item" *ngIf="event.where.length > 0" margin>
+            <ion-img src="assets/icon/where.png"></ion-img>
+            <div>
+                <span>Onde</span>
+                <p>{{event.where}}</p>
+            </div>
+        </div>
         <div class="item" *ngIf="event.address.length > 0" margin>
             <ion-img src="assets/icon/address.png"></ion-img>
             <div>
@@ -48,7 +55,7 @@
             <div>
                 <span>Onde comprar</span>
                 <p>{{event.where_to_buy.title}}</p>
-                <p class="link" (click)="openUrl(event.where_to_buy.url)">Ir para o site</p>
+                <p *ngIf="event.where_to_buy.url.length > 0" class="link" (click)="openUrl(event.where_to_buy.url)">Ir para o site</p>
             </div>
         </div>
         <div class="item" *ngIf="event.contact.length > 0" margin>
