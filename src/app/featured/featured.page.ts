@@ -26,7 +26,7 @@ export class FeaturedPage implements OnInit {
         this.toolbarColor = 'dark';
     }
 
-    ngOnInit() {
+    loadData() {
         this.eventsService
             .fetchFeed('events?featured=1')
             .subscribe(data => {
@@ -44,6 +44,17 @@ export class FeaturedPage implements OnInit {
             .subscribe(data => {
                 this.previousEvents = data;
             })
+    }
+
+    ngOnInit() {
+        this.loadData();
+    }
+
+    doRefresh(event) {
+        this.loadData();
+        setTimeout(() => {
+            event.target.complete();
+        }, 1000);
     }
 
     async showDetails(event: any) {

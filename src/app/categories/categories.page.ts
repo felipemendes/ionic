@@ -20,12 +20,23 @@ export class CategoriesPage implements OnInit {
         this.toolbarColor = 'dark';
     }
 
-    ngOnInit() {
+    loadData() {
         this.categoriesService
         .fetchFeed('categories')
         .subscribe(data => {
             this.categories = data;
         })
+    }
+
+    ngOnInit() {
+        this.loadData();
+    }
+
+    doRefresh(event) {
+        this.loadData();
+        setTimeout(() => {
+            event.target.complete();
+        }, 1000);
     }
 
     async showEvents(category: any) {

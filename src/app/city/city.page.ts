@@ -26,18 +26,29 @@ export class CityPage implements OnInit {
         this.toolbarColor = 'dark';
     }
 
-    ngOnInit() {
+    loadData() {
         this.citiesService
             .fetchFeed('cities')
             .subscribe(data => {
                 this.cities = data;
             })
-
+    
         this.eventsService
             .fetchFeed('events')
             .subscribe(data => {
                 this.events = data;
             })
+    }
+
+    ngOnInit() {
+        this.loadData();
+    }
+
+    doRefresh(event) {
+        this.loadData();
+        setTimeout(() => {
+            event.target.complete();
+        }, 1000);
     }
 
     async showDetails(event: any) {

@@ -14,7 +14,7 @@ export class EventsByCategoryPage implements OnInit {
 
     constructor(private modalController: ModalController, private navParams: NavParams, private eventsService: EventsService) { }
 
-    ngOnInit() {
+    loadData() {
         this.eventsService
             .fetchFeed(`events?category=${this.category.slug}`)
             .subscribe(data => {
@@ -22,6 +22,10 @@ export class EventsByCategoryPage implements OnInit {
             })
     }
 
+    ngOnInit() {
+        this.loadData();
+    }
+    
     ionViewWillEnter() {
         this.category = this.navParams.get('category');
     }

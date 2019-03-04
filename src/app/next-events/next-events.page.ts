@@ -26,7 +26,7 @@ export class NextEventsPage implements OnInit {
         this.toolbarColor = 'dark';
     }
 
-    ngOnInit() {
+    loadData() {
         this.eventsService
             .fetchFeed('events?today')
             .subscribe(data => {
@@ -44,6 +44,17 @@ export class NextEventsPage implements OnInit {
             .subscribe(data => {
                 this.previousEvents = data;
             })
+    }
+
+    ngOnInit() {
+        this.loadData();
+    }
+
+    doRefresh(event) {
+        this.loadData();
+        setTimeout(() => {
+            event.target.complete();
+        }, 1000);
     }
 
     async showDetails(event: any) {
