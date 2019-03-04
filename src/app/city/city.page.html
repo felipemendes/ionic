@@ -11,17 +11,17 @@
 
         <div class="city" *ngFor="let city of cities">
             <p class="title city-title">{{city.title}}</p>
-
-            <ng-container *ngFor="let event of events">
-            <ion-slides [options]="sliderConfig" *ngIf="event.city.slug == city.slug">
-                <ion-slide (click)="showDetails(event)">
-                <ion-card>
-                    <ion-img [src]="event.thumbnail"></ion-img>
-                </ion-card>
-                <p class="event-title" text-left>{{event.title}}</p>
-                </ion-slide>
+            
+            <ion-slides [options]="sliderConfig">
+                <ng-container *ngFor="let event of events">
+                    <ion-slide *ngIf="event.city.slug == city.slug" (click)="showDetails(event)">
+                        <ion-card>
+                            <ion-img [src]="event.thumbnail"></ion-img>
+                        </ion-card>
+                        <p class="event-title" text-left>{{event.title}}</p>
+                    </ion-slide>
+                </ng-container>
             </ion-slides>
-            </ng-container>
         </div>
     </div>
 </ion-content>
