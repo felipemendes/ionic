@@ -20,6 +20,7 @@ export class FeaturedPage implements OnInit {
     toolbarColor: string;
     featuredEvents: any = [];
     trendingEvents: any = [];
+    previousEvents: any = [];
 
     constructor(private iab: InAppBrowser, public actionSheetController: ActionSheetController, public modalController: ModalController, private eventsService: EventsService, public navController: NavController, public storage: Storage, private socialSharing: SocialSharing) {
         this.toolbarColor = 'dark';
@@ -36,6 +37,12 @@ export class FeaturedPage implements OnInit {
             .fetchFeed('events?trending=1')
             .subscribe(data => {
                 this.trendingEvents = data;
+            })
+
+        this.eventsService
+            .fetchFeed('events?status=publish')
+            .subscribe(data => {
+                this.previousEvents = data;
             })
     }
 

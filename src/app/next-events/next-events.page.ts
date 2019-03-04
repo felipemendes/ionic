@@ -20,6 +20,7 @@ export class NextEventsPage implements OnInit {
     toolbarColor: string;
     todayEvents: any = [];
     nextEvents: any = [];
+    previousEvents: any = [];
 
     constructor(private iab: InAppBrowser, public actionSheetController: ActionSheetController, public modalController: ModalController, private eventsService: EventsService, public navController: NavController, public storage: Storage, private socialSharing: SocialSharing) {
         this.toolbarColor = 'dark';
@@ -36,6 +37,12 @@ export class NextEventsPage implements OnInit {
             .fetchFeed('events')
             .subscribe(data => {
                 this.nextEvents = data;
+            })
+
+        this.eventsService
+            .fetchFeed('events?status=publish')
+            .subscribe(data => {
+                this.previousEvents = data;
             })
     }
 
