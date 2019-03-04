@@ -17,7 +17,7 @@ export class CategoriesPage implements OnInit {
     categories: any = [];
 
     constructor(private iab: InAppBrowser, public actionSheetController: ActionSheetController, public modalController: ModalController, private categoriesService: CategoriesService, public navController: NavController, public storage: Storage, private socialSharing: SocialSharing) {
-        this.toolbarColor = 'primary';
+        this.toolbarColor = 'dark';
     }
 
     ngOnInit() {

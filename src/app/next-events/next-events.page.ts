@@ -22,7 +22,7 @@ export class NextEventsPage implements OnInit {
     nextEvents: any = [];
 
     constructor(private iab: InAppBrowser, public actionSheetController: ActionSheetController, public modalController: ModalController, private eventsService: EventsService, public navController: NavController, public storage: Storage, private socialSharing: SocialSharing) {
-        this.toolbarColor = 'primary';
+        this.toolbarColor = 'dark';
     }
 
     ngOnInit() {

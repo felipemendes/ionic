@@ -48,6 +48,7 @@
             <div>
                 <span>Onde comprar</span>
                 <p>{{event.where_to_buy.title}}</p>
+                <p class="link" (click)="openUrl(event.where_to_buy.url)">Ir para o site</p>
             </div>
         </div>
         <div class="item" *ngIf="event.contact.length > 0" margin>
