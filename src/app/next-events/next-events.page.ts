@@ -74,8 +74,7 @@ export class NextEventsPage implements OnInit {
                     text: 'Sobre',
                     icon: 'information-circle-outline',
                     handler: () => {
-                        const browser = this.iab.create('https://google.com');
-                        browser.show();
+                        this.iab.create('http://purai.io', '_system');
                     }
                 },{
                     text: 'Sugerir evento',
@@ -83,18 +82,20 @@ export class NextEventsPage implements OnInit {
                     handler: () => {
                         this.shareEmail()
                     }
-                },{
-                    text: 'Sair',
-                    icon: 'log-out',
-                    handler: () => {
-                        this.storage.get('intro-done6').then(done => {
-                            if (done) {
-                                this.storage.set('intro-done6', true);
-                                this.navController.navigateRoot('/intro');
-                            }
-                        });
-                    }
-                },{
+                },
+                // {
+                //     text: 'Sair',
+                //     icon: 'log-out',
+                //     handler: () => {
+                //         this.storage.get('intro-done6').then(done => {
+                //             if (done) {
+                //                 this.storage.set('intro-done6', true);
+                //                 this.navController.navigateRoot('/intro');
+                //             }
+                //         });
+                //     }
+                // },
+                {
                     text: 'Cancelar',
                     icon: 'close',
                     role: 'cancel'

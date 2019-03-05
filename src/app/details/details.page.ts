@@ -18,8 +18,7 @@ export class DetailsPage {
     }
 
     async openUrl(url: string) {
-        const browser = this.iab.create(url);
-        browser.show();
+        this.iab.create(url, '_system');
     }
 
     async dismiss() {
