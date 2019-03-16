@@ -41,7 +41,7 @@
         </div>
 
         <div *ngIf="previousEvents.length > 0" class="list-card">
-            <p class="title" margin-top>Confira o que já aconteceu...</p>
+            <p class="title" margin-top>Confira o que já rolou...</p>
         
             <ion-card *ngFor="let event of previousEvents" (click)="showDetails(event)">
                 <ion-img [src]="event.thumbnail"></ion-img>

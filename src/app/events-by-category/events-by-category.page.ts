@@ -11,6 +11,7 @@ import { DetailsPage } from '../details/details.page';
 export class EventsByCategoryPage implements OnInit {
     category: any;
     events: any;
+    previousEvents: any = [];
 
     constructor(private modalController: ModalController, private navParams: NavParams, private eventsService: EventsService) { }
 
@@ -19,6 +20,12 @@ export class EventsByCategoryPage implements OnInit {
             .fetchFeed(`events?category=${this.category.slug}`)
             .subscribe(data => {
                 this.events = data;
+            })
+
+        this.eventsService
+            .fetchFeed(`events?category=${this.category.slug}&status=publish&per-page=10`)
+            .subscribe(data => {
+                this.previousEvents = data;
             })
     }
 
