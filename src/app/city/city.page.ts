@@ -68,10 +68,10 @@ export class CityPage implements OnInit {
                     text: 'Sobre',
                     icon: 'information-circle-outline',
                     handler: () => {
-                        this.iab.create('http://purai.io', '_system');
+                        this.iab.create('https://purai.io', '_system');
                     }
                 },{
-                    text: 'Sugerir evento',
+                    text: 'Indique seu evento',
                     icon: 'checkmark-circle-outline',
                     handler: () => {
                         this.shareEmail()

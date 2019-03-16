@@ -56,10 +56,10 @@ export class CategoriesPage implements OnInit {
                     text: 'Sobre',
                     icon: 'information-circle-outline',
                     handler: () => {
-                        this.iab.create('http://purai.io', '_system');
+                        this.iab.create('https://purai.io', '_system');
                     }
                 },{
-                    text: 'Sugerir evento',
+                    text: 'Indique seu evento',
                     icon: 'checkmark-circle-outline',
                     handler: () => {
                         this.shareEmail()
@@ -88,7 +88,7 @@ export class CategoriesPage implements OnInit {
     }
 
     async shareEmail() {
-        this.socialSharing.shareViaEmail(null, 'Sugestão de evento - PurAí', ['felipemendes@me.com'], null, null, null).then(() => {
+        this.socialSharing.shareViaEmail(null, 'Indicação de evento - PurAí', ['contato@purai.io'], null, null, null).then(() => {
           // Success
         }).catch((e) => {
           // Error!

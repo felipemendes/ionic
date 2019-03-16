@@ -1,4 +1,4 @@
 export const environment = {
   production: true,
-  apiUrl: 'http://localhost/wp-json/purai/v1'
+  apiUrl: 'https://purai.io/api/v1'
 };
