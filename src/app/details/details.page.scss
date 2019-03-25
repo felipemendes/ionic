@@ -1,3 +1,14 @@
+ion-toolbar {
+    position: absolute;
+    --background: transparent;
+    --ion-color-base: transparent !important;
+    .title {
+        height: 50px;
+    }
+}
+.toolbar-background {
+    border: none;
+}
 .dismiss {
     position: fixed;
     right: 30px;

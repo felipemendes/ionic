@@ -1,6 +1,12 @@
-<ion-content>
-    <ion-icon name="close-circle-outline" class="dismiss" (click)="dismiss()"></ion-icon>
-    <ion-img [src]="event.image" class="featured-image"></ion-img>
+<ion-header no-shadow no-border>
+    <ion-toolbar>
+        <p class="title"></p>
+        <ion-icon name="close-circle-outline" class="dismiss" (click)="dismiss()"></ion-icon>
+    </ion-toolbar>
+</ion-header>
+
+<ion-content fullscreen>
+    <ion-img [src]="event.image" class="featured-image" (pan)="dismiss()"></ion-img>
     
     <div class="content">
         <div class="social-sharing">

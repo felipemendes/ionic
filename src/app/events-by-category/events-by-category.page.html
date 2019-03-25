@@ -1,7 +1,13 @@
-<ion-content>
+<ion-header no-shadow no-border>
+    <ion-toolbar [color]="toolbarColor">
+        <p class="title"></p>
+        <ion-icon name="close-circle-outline" class="settings_menu" (click)="dismiss()"></ion-icon>
+    </ion-toolbar>
+</ion-header>
+
+<ion-content fullscreen>
     <div class="category-info">
         <p>{{category.title}}</p>
-        <ion-icon name="close-circle-outline" class="dismiss"  (click)="dismiss()"></ion-icon>
     </div>
     
     <div class="list-card">
