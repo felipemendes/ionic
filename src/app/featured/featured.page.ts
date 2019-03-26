@@ -2,6 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import { ModalController, ActionSheetController, NavController } from '@ionic/angular';
 import { InAppBrowser } from '@ionic-native/in-app-browser/ngx';
 import { Storage } from '@ionic/storage';
+import { LoadingController } from '@ionic/angular';
 import { SocialSharing } from '@ionic-native/social-sharing/ngx';
 import { EventsService } from '../services/events.service';
 import { DetailsPage } from '../details/details.page';
@@ -22,27 +23,43 @@ export class FeaturedPage implements OnInit {
     trendingEvents: any = [];
     previousEvents: any = [];
 
-    constructor(private iab: InAppBrowser, public actionSheetController: ActionSheetController, public modalController: ModalController, private eventsService: EventsService, public navController: NavController, public storage: Storage, private socialSharing: SocialSharing) {
+    constructor(
+            private iab: InAppBrowser, 
+            public actionSheetController: ActionSheetController, 
+            public modalController: ModalController, 
+            private eventsService: EventsService, 
+            public navController: NavController, 
+            public storage: Storage, private socialSharing: SocialSharing, 
+            public loadingController: LoadingController
+        ) {
         this.toolbarColor = 'dark';
     }
 
-    loadData() {
+    async loadData() {
+        const loading = await this.loadingController.create({
+            message: 'Preparando os eventos...'
+        });
+        await loading.present();
+
         this.eventsService
             .fetchFeed('events?featured=1')
-            .subscribe(data => {
+            .subscribe(async data => {
                 this.featuredEvents = data;
+                await loading.dismiss();
             })
 
         this.eventsService
             .fetchFeed('events?trending=1')
-            .subscribe(data => {
+            .subscribe(async data => {
                 this.trendingEvents = data;
+                await loading.dismiss();
             })
 
         this.eventsService
             .fetchFeed('events?status=publish&per-page=10')
-            .subscribe(data => {
+            .subscribe(async data => {
                 this.previousEvents = data;
+                await loading.dismiss();
             })
     }
 

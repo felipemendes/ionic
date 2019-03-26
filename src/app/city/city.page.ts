@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { ModalController, ActionSheetController, NavController } from '@ionic/angular';
 import { Storage } from '@ionic/storage';
+import { LoadingController } from '@ionic/angular';
 import { InAppBrowser } from '@ionic-native/in-app-browser/ngx';
 import { SocialSharing } from '@ionic-native/social-sharing/ngx';
 import { EventsService } from '../services/events.service';
@@ -22,21 +23,37 @@ export class CityPage implements OnInit {
     cities: any = [];
     events: any = [];
     
-    constructor(private iab: InAppBrowser, public actionSheetController: ActionSheetController, public modalController: ModalController, private citiesService: CitiesService, private eventsService: EventsService, public navController: NavController, public storage: Storage, private socialSharing: SocialSharing) {
+    constructor(
+            private iab: InAppBrowser, 
+            public actionSheetController: ActionSheetController, 
+            public modalController: ModalController, 
+            private citiesService: CitiesService, 
+            private eventsService: EventsService, 
+            public navController: NavController, 
+            public storage: Storage, private socialSharing: SocialSharing, 
+            public loadingController: LoadingController
+        ) {
         this.toolbarColor = 'dark';
     }
 
-    loadData() {
+    async loadData() {
+        const loading = await this.loadingController.create({
+            message: 'Preparando os eventos...'
+        });
+        await loading.present();
+
         this.citiesService
             .fetchFeed('cities')
-            .subscribe(data => {
+            .subscribe(async data => {
                 this.cities = data;
+                await loading.dismiss();
             })
     
         this.eventsService
             .fetchFeed('events')
-            .subscribe(data => {
+            .subscribe(async data => {
                 this.events = data;
+                await loading.dismiss();
             })
     }
 

@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { NavParams, ModalController } from '@ionic/angular';
+import { LoadingController } from '@ionic/angular';
 import { EventsService } from '../services/events.service';
 import { DetailsPage } from '../details/details.page';
 
@@ -13,19 +14,31 @@ export class EventsByCategoryPage implements OnInit {
     events: any;
     previousEvents: any = [];
 
-    constructor(private modalController: ModalController, private navParams: NavParams, private eventsService: EventsService) { }
+    constructor(
+            private modalController: ModalController, 
+            private navParams: NavParams, 
+            private eventsService: EventsService, 
+            public loadingController: LoadingController
+        ) { }
 
-    loadData() {
+    async loadData() {
+        const loading = await this.loadingController.create({
+            message: 'Preparando os eventos...'
+        });
+        await loading.present();
+
         this.eventsService
             .fetchFeed(`events?category=${this.category.slug}`)
-            .subscribe(data => {
+            .subscribe(async data => {
                 this.events = data;
+                await loading.dismiss();
             })
 
         this.eventsService
             .fetchFeed(`events?category=${this.category.slug}&status=publish&per-page=10`)
-            .subscribe(data => {
+            .subscribe(async data => {
                 this.previousEvents = data;
+                await loading.dismiss();
             })
     }
 

@@ -11,7 +11,12 @@ import { InAppBrowser } from '@ionic-native/in-app-browser/ngx';
 export class DetailsPage {
     event: any;
 
-    constructor(private modalController: ModalController, private navParams: NavParams, private socialSharing: SocialSharing, private iab: InAppBrowser) { }
+    constructor(
+            private modalController: ModalController, 
+            private navParams: NavParams, 
+            private socialSharing: SocialSharing, 
+            private iab: InAppBrowser
+        ) { }
 
     ionViewWillEnter() {
         this.event = this.navParams.get('event');

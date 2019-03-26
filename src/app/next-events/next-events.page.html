@@ -30,7 +30,7 @@
         </div>
 
         <div *ngIf="nextEvents.length > 0" class="list-card">
-            <p class="title">Próximos</p>
+            <p class="title">Próximos eventos</p>
 
             <ion-card *ngFor="let event of nextEvents" (click)="showDetails(event)">
             <ion-img [src]="event.thumbnail"></ion-img>

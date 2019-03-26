@@ -2,6 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import { ModalController, ActionSheetController, NavController } from '@ionic/angular';
 import { InAppBrowser } from '@ionic-native/in-app-browser/ngx';
 import { Storage } from '@ionic/storage';
+import { LoadingController } from '@ionic/angular';
 import { SocialSharing } from '@ionic-native/social-sharing/ngx';
 import { CategoriesService } from '../services/categories.service';
 import { EventsByCategoryPage } from '../events-by-category/events-by-category.page';
@@ -16,15 +17,30 @@ export class CategoriesPage implements OnInit {
     toolbarColor: string;
     categories: any = [];
 
-    constructor(private iab: InAppBrowser, public actionSheetController: ActionSheetController, public modalController: ModalController, private categoriesService: CategoriesService, public navController: NavController, public storage: Storage, private socialSharing: SocialSharing) {
+    constructor(
+            private iab: InAppBrowser, 
+            public actionSheetController: ActionSheetController, 
+            public modalController: ModalController, 
+            private categoriesService: CategoriesService, 
+            public navController: NavController, 
+            public storage: Storage, 
+            private socialSharing: SocialSharing,
+            public loadingController: LoadingController
+        ) {
         this.toolbarColor = 'dark';
     }
 
-    loadData() {
+    async loadData() {
+        const loading = await this.loadingController.create({
+            message: 'Preparando os eventos...'
+        });
+        await loading.present();
+
         this.categoriesService
         .fetchFeed('categories')
-        .subscribe(data => {
+        .subscribe(async data => {
             this.categories = data;
+            await loading.dismiss();
         })
     }
 
