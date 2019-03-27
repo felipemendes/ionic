@@ -3,6 +3,7 @@ import { ModalController, ActionSheetController, NavController } from '@ionic/an
 import { InAppBrowser } from '@ionic-native/in-app-browser/ngx';
 import { Storage } from '@ionic/storage';
 import { SocialSharing } from '@ionic-native/social-sharing/ngx';
+import { LoadingController } from '@ionic/angular';
 import { EventsService } from '../services/events.service';
 import { DetailsPage } from '../details/details.page';
 
@@ -22,27 +23,45 @@ export class NextEventsPage implements OnInit {
     nextEvents: any = [];
     previousEvents: any = [];
 
-    constructor(private iab: InAppBrowser, public actionSheetController: ActionSheetController, public modalController: ModalController, private eventsService: EventsService, public navController: NavController, public storage: Storage, private socialSharing: SocialSharing) {
+    constructor(
+            private iab: InAppBrowser, 
+            public actionSheetController: ActionSheetController, 
+            public modalController: ModalController, 
+            private eventsService: EventsService, 
+            public navController: NavController, 
+            public storage: Storage, 
+            private socialSharing: SocialSharing, 
+            public loadingController: LoadingController
+        ) {
         this.toolbarColor = 'dark';
     }
 
-    loadData() {
+    
+    async loadData() {
+        const loading = await this.loadingController.create({
+            message: 'Preparando os eventos...'
+        });
+        await loading.present();
+
         this.eventsService
             .fetchFeed('events?today')
-            .subscribe(data => {
+            .subscribe(async data => {
                 this.todayEvents = data;
+                await loading.dismiss();
             })
 
         this.eventsService
             .fetchFeed('events')
-            .subscribe(data => {
+            .subscribe(async data => {
                 this.nextEvents = data;
+                await loading.dismiss();
             })
 
         this.eventsService
             .fetchFeed('events?status=publish')
-            .subscribe(data => {
+            .subscribe(async data => {
                 this.previousEvents = data;
+                await loading.dismiss();
             })
     }
 

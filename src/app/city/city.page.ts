@@ -50,7 +50,7 @@ export class CityPage implements OnInit {
             })
     
         this.eventsService
-            .fetchFeed('events')
+            .fetchFeed('events?status=publish&status=future')
             .subscribe(async data => {
                 this.events = data;
                 await loading.dismiss();
