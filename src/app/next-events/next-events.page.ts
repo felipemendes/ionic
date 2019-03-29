@@ -102,18 +102,18 @@ export class NextEventsPage implements OnInit {
                         this.shareEmail()
                     }
                 },
-                // {
-                //     text: 'Sair',
-                //     icon: 'log-out',
-                //     handler: () => {
-                //         this.storage.get('intro-done6').then(done => {
-                //             if (done) {
-                //                 this.storage.set('intro-done6', true);
-                //                 this.navController.navigateRoot('/intro');
-                //             }
-                //         });
-                //     }
-                // },
+                {
+                    text: 'Sair',
+                    icon: 'log-out',
+                    handler: () => {
+                        this.storage.get('intro-done').then(done => {
+                            if (done) {
+                                this.storage.set('intro-done', true);
+                                this.navController.navigateRoot('/intro');
+                            }
+                        });
+                    }
+                },
                 {
                     text: 'Cancelar',
                     icon: 'close',
