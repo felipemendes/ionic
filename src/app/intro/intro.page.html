@@ -1,5 +1,5 @@
-<ion-content>
-    <ion-slides pager="true" parallax="true">
+<ion-content class="no-scroll">
+    <ion-slides pager="true" parallax="true" scrollbar="false">
 
         <ion-slide style="background:url('assets/img/walkthrough/background-1.png');">
             <img src="assets/img/walkthrough/intro-1.png">
@@ -24,7 +24,7 @@
                     <img src="assets/img/walkthrough/intro-5.png">
                 </ion-col>
             </ion-row>
-            <ion-row>
+            <ion-row class="buttons-row">
                 <ion-col>
                     <button ion-button (click)="goHome()">Acessar</button>
                 </ion-col>
