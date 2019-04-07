@@ -37,7 +37,7 @@ export class FeaturedPage implements OnInit {
 
     async loadData() {
         const loading = await this.loadingController.create({
-            message: 'Preparando os eventos...'
+            message: 'Carregando os eventos...'
         });
         await loading.present();
 
@@ -56,7 +56,7 @@ export class FeaturedPage implements OnInit {
             })
 
         this.eventsService
-            .fetchFeed('events?status=publish&per-page=10')
+            .fetchFeed('events?status=publish&per-page=4')
             .subscribe(async data => {
                 this.previousEvents = data;
                 await loading.dismiss();

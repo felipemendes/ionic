@@ -23,7 +23,7 @@ export class EventsByCategoryPage implements OnInit {
 
     async loadData() {
         const loading = await this.loadingController.create({
-            message: 'Preparando os eventos...'
+            message: 'Carregando os eventos...'
         });
         await loading.present();
 
@@ -35,7 +35,7 @@ export class EventsByCategoryPage implements OnInit {
             })
 
         this.eventsService
-            .fetchFeed(`events?category=${this.category.slug}&status=publish&per-page=10`)
+            .fetchFeed(`events?category=${this.category.slug}&status=publish&per-page=4`)
             .subscribe(async data => {
                 this.previousEvents = data;
                 await loading.dismiss();

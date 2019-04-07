@@ -31,7 +31,7 @@ export class DetailsPage {
     }
 
     async shareTwitter() {
-        this.socialSharing.shareViaTwitter(`Ei, vai rolar ${this.event.title} em ${this.event.city.title}. Saiba mais sobre esse e outros eventos no app PurAí.`, this.event.image, 'URL').then(() => {
+        this.socialSharing.shareViaTwitter(`Ei, vai rolar ${this.event.title} em ${this.event.city.title}. Saiba mais sobre esse e outros eventos no app PurAí.`, this.event.image, 'https://itunes.apple.com/us/app/pura%C3%AD/id1067098059?l=pt&ls=1&mt=8').then(() => {
             // Success
         }).catch((e) => {
             // Error!
@@ -39,7 +39,7 @@ export class DetailsPage {
     }
     
     async shareWhatsApp() {
-        this.socialSharing.shareViaWhatsApp(`Ei, vai rolar ${this.event.title} em ${this.event.city.title}. Saiba mais sobre esse e outros eventos no app PurAí.`, this.event.image, 'URL').then(() => {
+        this.socialSharing.shareViaWhatsApp(`Ei, vai rolar ${this.event.title} em ${this.event.city.title}. Saiba mais sobre esse e outros eventos no app PurAí.`, this.event.image, 'https://itunes.apple.com/us/app/pura%C3%AD/id1067098059?l=pt&ls=1&mt=8').then(() => {
             // Success
         }).catch((e) => {
             // Error!
@@ -55,7 +55,7 @@ export class DetailsPage {
     }
     
     async shareFacebook() {
-        this.socialSharing.shareViaFacebook(`Ei, vai rolar ${this.event.title} em ${this.event.city.title}. Saiba mais sobre esse e outros eventos no app PurAí.`, this.event.image, 'URL').then(() => {
+        this.socialSharing.shareViaFacebook(`Ei, vai rolar ${this.event.title} em ${this.event.city.title}. Saiba mais sobre esse e outros eventos no app PurAí.`, this.event.image, 'https://itunes.apple.com/us/app/pura%C3%AD/id1067098059?l=pt&ls=1&mt=8').then(() => {
             // Success
         }).catch((e) => {
             // Error!
