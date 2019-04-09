@@ -12,7 +12,7 @@
     
     <div class="list-card">
         <ion-card *ngFor="let event of events" (click)="showDetails(event)">
-            <ion-img [src]="event.thumbnail"></ion-img>
+            <ion-img [src]="event.image"></ion-img>
             <ion-card-content>
                 <ion-card-title>{{event.title}}</ion-card-title>
             </ion-card-content>
@@ -23,7 +23,7 @@
         <p class="title" margin-top>Confira o que já rolou...</p>
     
         <ion-card *ngFor="let event of previousEvents" (click)="showDetails(event)">
-            <ion-img [src]="event.thumbnail"></ion-img>
+            <ion-img [src]="event.image"></ion-img>
             <ion-card-content>
             <ion-card-title>{{event.title}}</ion-card-title>
             </ion-card-content>

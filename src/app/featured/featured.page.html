@@ -22,7 +22,7 @@
             <ion-slides [options]="sliderConfig">
                 <ion-slide *ngFor="let event of featuredEvents" (click)="showDetails(event)">
                 <ion-card>
-                    <ion-img [src]="event.thumbnail"></ion-img>
+                    <ion-img [src]="event.image"></ion-img>
                 </ion-card>
                 <p class="event-title" text-left>{{event.title}}</p>
                 </ion-slide>
@@ -33,7 +33,7 @@
             <p class="title" margin-top>Confira o que está em alta</p>
         
             <ion-card *ngFor="let event of trendingEvents" (click)="showDetails(event)">
-                <ion-img [src]="event.thumbnail"></ion-img>
+                <ion-img [src]="event.image"></ion-img>
                 <ion-card-content>
                 <ion-card-title>{{event.title}}</ion-card-title>
                 </ion-card-content>
@@ -44,7 +44,7 @@
             <p class="title" margin-top>Confira o que já rolou...</p>
         
             <ion-card *ngFor="let event of previousEvents" (click)="showDetails(event)">
-                <ion-img [src]="event.thumbnail"></ion-img>
+                <ion-img [src]="event.image"></ion-img>
                 <ion-card-content>
                 <ion-card-title>{{event.title}}</ion-card-title>
                 </ion-card-content>
