@@ -21,14 +21,12 @@ export class CityPage implements OnInit {
 
     toolbarColor: string;
     cities: any = [];
-    events: any = [];
     
     constructor(
             private iab: InAppBrowser, 
             public actionSheetController: ActionSheetController, 
             public modalController: ModalController, 
-            private citiesService: CitiesService, 
-            private eventsService: EventsService, 
+            private citiesService: CitiesService,
             public navController: NavController, 
             public storage: Storage, private socialSharing: SocialSharing, 
             public loadingController: LoadingController
@@ -46,13 +44,6 @@ export class CityPage implements OnInit {
             .fetchFeed('cities')
             .subscribe(async data => {
                 this.cities = data;
-                await loading.dismiss();
-            })
-    
-        this.eventsService
-            .fetchFeed('events?status=publish&status=future')
-            .subscribe(async data => {
-                this.events = data;
                 await loading.dismiss();
             })
     }

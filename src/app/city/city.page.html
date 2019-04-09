@@ -22,14 +22,12 @@
             <p class="title city-title">{{city.title}}</p>
             
             <ion-slides [options]="sliderConfig">
-                <ng-container *ngFor="let event of events">
-                    <ion-slide *ngIf="event.city.slug == city.slug" (click)="showDetails(event)">
-                        <ion-card>
-                            <ion-img [src]="event.thumbnail"></ion-img>
-                        </ion-card>
-                        <p class="event-title" text-left>{{event.title}}</p>
-                    </ion-slide>
-                </ng-container>
+                <ion-slide *ngFor="let event of city.events"(click)="showDetails(event)">
+                    <ion-card>
+                        <ion-img [src]="event.image"></ion-img>
+                    </ion-card>
+                    <p class="event-title" text-left>{{event.title}}</p>
+                </ion-slide>
             </ion-slides>
         </div>
     </div>
