@@ -32,7 +32,7 @@ export class CategoriesPage implements OnInit {
 
     async loadData() {
         const loading = await this.loadingController.create({
-            message: 'Carregando os eventos...'
+            message: 'Carregando as categorias...'
         });
         await loading.present();
 
