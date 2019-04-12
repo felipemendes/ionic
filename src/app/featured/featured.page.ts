@@ -14,8 +14,7 @@ export class FeaturedPage implements OnInit {
     sliderConfig = {
         slidesPerView: 1.2
     };
-
-    toolbarColor: string;
+    
     featuredEvents: any = [];
     trendingEvents: any = [];
     previousEvents: any = [];
@@ -24,9 +23,7 @@ export class FeaturedPage implements OnInit {
             private modalController: ModalController, 
             private eventsService: EventsService, 
             private loadingController: LoadingController
-        ) {
-        this.toolbarColor = 'dark';
-    }
+        ) { }
 
     async loadData() {
         const loading = await this.loadingController.create({

@@ -1,12 +1,9 @@
 import { Component, OnInit } from '@angular/core';
-import { ModalController, ActionSheetController, NavController, Platform } from '@ionic/angular';
+import { ModalController, ActionSheetController, NavController } from '@ionic/angular';
 import { Storage } from '@ionic/storage';
 import { LoadingController } from '@ionic/angular';
-import { InAppBrowser } from '@ionic-native/in-app-browser/ngx';
-import { SocialSharing } from '@ionic-native/social-sharing/ngx';
 import { CitiesService } from '../services/cities.service';
 import { DetailsPage } from '../details/details.page';
-import { SiriShortcutsPage } from '../siri-shortcuts/siri-shortcuts.page';
 
 @Component({
     selector: 'app-city',
@@ -19,21 +16,16 @@ export class CityPage implements OnInit {
         slidesPerView: 1.2
     };
 
-    toolbarColor: string;
     cities: any = [];
     
     constructor(
-            private iab: InAppBrowser, 
             public actionSheetController: ActionSheetController, 
             public modalController: ModalController, 
             private citiesService: CitiesService,
             public navController: NavController, 
-            public storage: Storage, private socialSharing: SocialSharing, 
-            public loadingController: LoadingController,
-            private platform: Platform
-        ) {
-        this.toolbarColor = 'dark';
-    }
+            public storage: Storage, 
+            public loadingController: LoadingController
+        ) { }
 
     async loadData() {
         const loading = await this.loadingController.create({

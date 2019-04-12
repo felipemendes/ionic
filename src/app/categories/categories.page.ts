@@ -1,5 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import { ModalController, ActionSheetController, NavController } from '@ionic/angular';
+import { ModalController } from '@ionic/angular';
 import { Storage } from '@ionic/storage';
 import { LoadingController } from '@ionic/angular';
 import { CategoriesService } from '../services/categories.service';
@@ -11,20 +11,15 @@ import { EventsByCategoryPage } from '../events-by-category/events-by-category.p
     styleUrls: ['categories.page.scss']
 })
 export class CategoriesPage implements OnInit {
-    
-    toolbarColor: string;
+
     categories: any = [];
 
     constructor(
-            public actionSheetController: ActionSheetController, 
             public modalController: ModalController, 
             private categoriesService: CategoriesService, 
-            public navController: NavController, 
             public storage: Storage, 
             public loadingController: LoadingController,
-        ) {
-        this.toolbarColor = 'dark';
-    }
+        ) { }
 
     async loadData() {
         const loading = await this.loadingController.create({

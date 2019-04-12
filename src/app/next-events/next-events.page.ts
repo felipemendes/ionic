@@ -15,7 +15,6 @@ export class NextEventsPage implements OnInit {
         slidesPerView: 1.2
     };
 
-    toolbarColor: string;
     todayEvents: any = [];
     nextEvents: any = [];
     previousEvents: any = [];
@@ -24,9 +23,7 @@ export class NextEventsPage implements OnInit {
             public modalController: ModalController,
             private eventsService: EventsService,
             public loadingController: LoadingController
-        ) {
-        this.toolbarColor = 'dark';
-    }
+        ) { }
     
     async loadData() {
         const loading = await this.loadingController.create({
