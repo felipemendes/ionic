@@ -1,6 +1,7 @@
 import { NgModule } from '@angular/core';
 import { BrowserModule } from '@angular/platform-browser';
 import { RouteReuseStrategy } from '@angular/router';
+import { IonicStorageModule } from '@ionic/storage';
 
 import { IonicModule, IonicRouteStrategy } from '@ionic/angular';
 import { SplashScreen } from '@ionic-native/splash-screen/ngx';
@@ -13,7 +14,6 @@ import { SocialSharing } from '@ionic-native/social-sharing/ngx';
 
 import { EventsByCategoryPage } from './events-by-category/events-by-category.page';
 import { DetailsPage } from './details/details.page';
-import { IonicStorageModule } from '@ionic/storage';
 
 import { SiriShortcuts } from '@ionic-native/siri-shortcuts/ngx';
 import { SiriShortcutsPage } from './siri-shortcuts/siri-shortcuts.page';

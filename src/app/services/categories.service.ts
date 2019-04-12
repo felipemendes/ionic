@@ -5,13 +5,13 @@ import { HttpClient } from '@angular/common/http';
 const API_URL = environment.apiUrl;
 
 @Injectable({
-  providedIn: 'root'
+    providedIn: 'root'
 })
 export class CategoriesService {
-  currentCategory: any;
-  constructor(private http: HttpClient) {}
+    currentCategory: any;
+    constructor(private http: HttpClient) {}
 
-  fetchFeed(url) {
-    return this.http.get(`${API_URL}/${url}`);
-  }
+    fetchFeed(url) {
+        return this.http.get(`${API_URL}/${url}`);
+    }
 }

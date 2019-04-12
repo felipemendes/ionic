@@ -5,12 +5,12 @@ import { HttpClient } from '@angular/common/http';
 const API_URL = environment.apiUrl;
 
 @Injectable({
-  providedIn: 'root'
+    providedIn: 'root'
 })
 export class CitiesService {
-  constructor(private http: HttpClient) {}
+    constructor(private http: HttpClient) {}
 
-  fetchFeed(url) {
-    return this.http.get(`${API_URL}/${url}`);
-  }
+    fetchFeed(url) {
+        return this.http.get(`${API_URL}/${url}`);
+    }
 }
