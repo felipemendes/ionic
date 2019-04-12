@@ -11,6 +11,7 @@
 @import '~@ionic/angular/css/flex-utils.css';
 
 /** pull to refresh **/
+
 .refresher-ios .refresher-pulling-icon, .refresher-ios .refresher-pulling-text, .refresher-ios .refresher-refreshing-icon, .refresher-ios .refresher-refreshing-text {
     color: #fff;
 }
@@ -20,6 +21,7 @@ ion-spinner.spinner-ios line {
 }
 
 /** app **/
+
 ion-app {
     background-color: var(--dark);
 }
@@ -33,6 +35,18 @@ ion-header {
             padding: 30px 20px 10px 20px;
         }
     }
+}
+
+/** setting icon **/
+
+.settings_menu {
+    position: fixed;
+    z-index: 3;
+    right: 30px;
+    top: 35px;
+    font-size: 35px;
+    color: #fff;
+    mix-blend-mode: difference;
 }
 
 /** content **/
