@@ -15,15 +15,20 @@ import { EventsByCategoryPage } from './events-by-category/events-by-category.pa
 import { DetailsPage } from './details/details.page';
 import { IonicStorageModule } from '@ionic/storage';
 
+import { SiriShortcuts } from '@ionic-native/siri-shortcuts/ngx';
+import { SiriShortcutsPage } from './siri-shortcuts/siri-shortcuts.page';
+
 @NgModule({
     declarations: [
         AppComponent,
         DetailsPage,
-        EventsByCategoryPage
+        EventsByCategoryPage,
+        SiriShortcutsPage
     ],
     entryComponents: [
-        DetailsPage, 
-        EventsByCategoryPage
+        DetailsPage,
+        EventsByCategoryPage,
+        SiriShortcutsPage
     ],
     imports: [
         BrowserModule, 
@@ -36,6 +41,7 @@ import { IonicStorageModule } from '@ionic/storage';
         SocialSharing,
         StatusBar,
         SplashScreen,
+        SiriShortcuts,
         { provide: RouteReuseStrategy, useClass: IonicRouteStrategy }
     ],
     bootstrap: [AppComponent]

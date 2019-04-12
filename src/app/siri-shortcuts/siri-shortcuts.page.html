@@ -1,0 +1,23 @@
+<ion-header no-shadow no-border>
+    <ion-toolbar>
+        <p class="title"></p>
+        <ion-icon name="close-circle" class="settings_menu" (click)="dismiss()"></ion-icon>
+    </ion-toolbar>
+</ion-header>
+
+<ion-content fullscreen>
+    <div class="category-info">
+        <p>Atalhos da Siri</p>
+    </div>
+
+    <ion-list lines="none">
+        <ion-item (click)="addShortcut('próximos eventos', 'next-events')">
+            <ion-label>Próximos eventos</ion-label>
+            <ion-icon name="add-circle-outline" slot="end"></ion-icon>
+        </ion-item>
+        <ion-item (click)="addShortcut('destaques', 'featured')">
+            <ion-label>Eventos em destaque</ion-label>
+            <ion-icon name="add-circle-outline" slot="end"></ion-icon>
+        </ion-item>
+    </ion-list>
+</ion-content>

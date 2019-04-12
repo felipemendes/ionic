@@ -1,11 +1,12 @@
 import { Component, OnInit } from '@angular/core';
-import { ModalController, ActionSheetController, NavController } from '@ionic/angular';
+import { ModalController, ActionSheetController, NavController, Platform } from '@ionic/angular';
 import { InAppBrowser } from '@ionic-native/in-app-browser/ngx';
 import { Storage } from '@ionic/storage';
 import { SocialSharing } from '@ionic-native/social-sharing/ngx';
 import { LoadingController } from '@ionic/angular';
 import { EventsService } from '../services/events.service';
 import { DetailsPage } from '../details/details.page';
+import { SiriShortcutsPage } from '../siri-shortcuts/siri-shortcuts.page';
 
 @Component({
     selector: 'app-next-events',
@@ -31,7 +32,8 @@ export class NextEventsPage implements OnInit {
             public navController: NavController, 
             public storage: Storage, 
             private socialSharing: SocialSharing, 
-            public loadingController: LoadingController
+            public loadingController: LoadingController,
+            private platform: Platform
         ) {
         this.toolbarColor = 'dark';
     }
@@ -88,47 +90,71 @@ export class NextEventsPage implements OnInit {
 
     async settings_menu() {
         const actionSheet = await this.actionSheetController.create({
-            buttons: [
-                {
-                    text: 'Sobre',
-                    icon: 'information-circle-outline',
-                    handler: () => {
-                        this.iab.create('https://purai.io', '_system');
-                    }
-                },{
-                    text: 'Indique seu evento',
-                    icon: 'checkmark-circle-outline',
-                    handler: () => {
-                        this.shareEmail()
-                    }
-                },
-                {
-                    text: 'Sair',
-                    icon: 'log-out',
-                    handler: () => {
-                        this.storage.get('intro-done').then(done => {
-                            if (done) {
-                                this.storage.set('intro-done', true);
-                                this.navController.navigateRoot('/intro');
-                            }
-                        });
-                    }
-                },
-                {
-                    text: 'Cancelar',
-                    icon: 'close',
-                    role: 'cancel'
-                }
-            ]
+            buttons: this.createButtons()
         });
         await actionSheet.present();
     }
 
+    createButtons() {
+        let buttons = [];
+
+        if (this.platform.is('ios')) {
+            let siriButton = {
+                text: 'Atalhos da Siri',
+                icon: null,
+                handler: async () => {
+                    const modal = await this.modalController.create({
+                        component: SiriShortcutsPage
+                    });
+                    return await modal.present();
+                }
+            }
+            buttons.push(siriButton);
+        }
+
+        let recomendationButton = {
+            text: 'Indique seu evento',
+            icon: !this.platform.is('ios') ? 'checkmark-circle-outline' : null,
+            handler: () => {
+                this.shareEmail();
+            }
+        }
+        buttons.push(recomendationButton);
+
+        let aboutButton = {
+            text: 'Sobre',
+            icon: !this.platform.is('ios') ? 'information-circle-outline' : null,
+            handler: () => {
+                this.iab.create('https://purai.io', '_system');
+            }
+        }
+        buttons.push(aboutButton);
+
+        let exitButton = {
+            text: 'Sair',
+            icon: !this.platform.is('ios') ? 'log-out' : null,
+            handler: () => {
+                this.storage.get('intro-done').then(done => {
+                    if (done) {
+                        this.storage.set('intro-done', true);
+                        this.navController.navigateRoot('/intro');
+                    }
+                });
+            }
+        }
+        buttons.push(exitButton);
+
+        let cancelButton = {
+            text: 'Cancelar',
+            icon: !this.platform.is('ios') ? 'close' : null,
+            role: 'cancel'
+        }
+        buttons.push(cancelButton);
+
+        return buttons;
+    }
+
     async shareEmail() {
-        this.socialSharing.shareViaEmail(null, 'Sugestão de evento - PurAí', ['felipemendes@me.com'], null, null, null).then(() => {
-          // Success
-        }).catch((e) => {
-          // Error!
-        });
+        this.socialSharing.shareViaEmail(null, 'Sugestão de evento - PurAí', ['felipemendes@me.com'], null, null, null);
     }
 }
