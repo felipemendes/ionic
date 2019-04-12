@@ -31,34 +31,18 @@ export class DetailsPage {
     }
 
     async shareTwitter() {
-        this.socialSharing.shareViaTwitter(`Ei, vai rolar ${this.event.title} em ${this.event.city.title}. Saiba mais sobre esse e outros eventos no app PurAí.`, this.event.image, 'https://itunes.apple.com/us/app/pura%C3%AD/id1067098059?l=pt&ls=1&mt=8').then(() => {
-            // Success
-        }).catch((e) => {
-            // Error!
-        });
+        this.socialSharing.shareViaTwitter(`Ei, vai rolar ${this.event.title} em ${this.event.city.title}. Saiba mais sobre esse e outros eventos no app PurAí.`, this.event.image, 'https://itunes.apple.com/us/app/pura%C3%AD/id1067098059?l=pt&ls=1&mt=8');
     }
     
     async shareWhatsApp() {
-        this.socialSharing.shareViaWhatsApp(`Ei, vai rolar ${this.event.title} em ${this.event.city.title}. Saiba mais sobre esse e outros eventos no app PurAí.`, this.event.image, 'https://itunes.apple.com/us/app/pura%C3%AD/id1067098059?l=pt&ls=1&mt=8').then(() => {
-            // Success
-        }).catch((e) => {
-            // Error!
-        });
+        this.socialSharing.shareViaWhatsApp(`Ei, vai rolar ${this.event.title} em ${this.event.city.title}. Saiba mais sobre esse e outros eventos no app PurAí.`, this.event.image, 'https://itunes.apple.com/us/app/pura%C3%AD/id1067098059?l=pt&ls=1&mt=8');
     }
 
     async shareEmail() {
-        this.socialSharing.shareViaEmail(`Ei, vai rolar ${this.event.title} em ${this.event.city.title}. Saiba mais sobre esse e outros eventos no app PurAí.`, 'Subject', ['mailto@mail.com'], null, null, null).then(() => {
-            // Success
-        }).catch((e) => {
-            // Error!
-        });
+        this.socialSharing.shareViaEmail(`Ei, vai rolar ${this.event.title} em ${this.event.city.title}. Saiba mais sobre esse e outros eventos no app PurAí.`, 'Subject', ['contato@purai.io'], null, null, null);
     }
     
     async shareFacebook() {
-        this.socialSharing.shareViaFacebook(`Ei, vai rolar ${this.event.title} em ${this.event.city.title}. Saiba mais sobre esse e outros eventos no app PurAí.`, this.event.image, 'https://itunes.apple.com/us/app/pura%C3%AD/id1067098059?l=pt&ls=1&mt=8').then(() => {
-            // Success
-        }).catch((e) => {
-            // Error!
-        });
+        this.socialSharing.shareViaFacebook(`Ei, vai rolar ${this.event.title} em ${this.event.city.title}. Saiba mais sobre esse e outros eventos no app PurAí.`, this.event.image, 'https://itunes.apple.com/us/app/pura%C3%AD/id1067098059?l=pt&ls=1&mt=8');
     }
 }
