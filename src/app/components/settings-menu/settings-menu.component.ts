@@ -65,19 +65,19 @@ export class SettingMenuComponent {
         }
         buttons.push(aboutButton);
 
-        let exitButton = {
-            text: 'Sair',
-            icon: !this.platform.is('ios') ? 'log-out' : null,
-            handler: () => {
-                this.storage.get('intro-done').then(done => {
-                    if (done) {
-                        this.storage.set('intro-done', true);
-                        this.navController.navigateRoot('/intro');
-                    }
-                });
-            }
-        }
-        buttons.push(exitButton);
+        // let exitButton = {
+        //     text: 'Sair',
+        //     icon: !this.platform.is('ios') ? 'log-out' : null,
+        //     handler: () => {
+        //         this.storage.get('intro-done').then(done => {
+        //             if (done) {
+        //                 this.storage.set('intro-done', true);
+        //                 this.navController.navigateRoot('/intro');
+        //             }
+        //         });
+        //     }
+        // }
+        // buttons.push(exitButton);
 
         let cancelButton = {
             text: 'Cancelar',
