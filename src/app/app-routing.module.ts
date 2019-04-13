@@ -3,8 +3,7 @@ import { PreloadAllModules, RouterModule, Routes } from '@angular/router';
 
 const routes: Routes = [
     { path: '', loadChildren: './tabs/tabs.module#TabsPageModule' },
-    { path: 'intro', loadChildren: './intro/intro.module#IntroPageModule' },
-    { path: 'siri-shortcuts', loadChildren: './siri-shortcuts/siri-shortcuts.module#SiriShortcutsPageModule' }
+    { path: 'intro', loadChildren: './intro/intro.module#IntroPageModule' }
 ];
 @NgModule({
     imports: [

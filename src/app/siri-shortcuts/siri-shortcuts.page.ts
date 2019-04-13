@@ -21,8 +21,8 @@ export class SiriShortcutsPage {
     addShortcut(cmd:string, action:string) {
         this.siriShortcuts.present({
                 persistentIdentifier: action,
-                title: 'Mostrar ' + cmd,
-                suggestedInvocationPhrase: 'Mostrar ' + cmd,
+                title: cmd,
+                suggestedInvocationPhrase: cmd,
                 userInfo: { action: action },
         })
         .then(() => console.log('Shortcut added.'))
