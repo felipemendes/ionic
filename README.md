@@ -9,7 +9,6 @@ This app is made with Ionic Framework and Angular.
 * Clone this repository: `git clone https://github.com/purai/ionic.git`.
 * Run `npm install` from the project root.
 * Run `ionic serve` in a terminal from the project root.
-* Profit. :tada:
 
 ## License
 This project is licensed under the GNU GPLv3 License - see the [LICENSE](LICENSE) file for details
