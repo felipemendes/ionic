@@ -2,6 +2,7 @@ import { Component } from '@angular/core';
 import { NavParams, ModalController } from '@ionic/angular';
 import { SocialSharing } from '@ionic-native/social-sharing/ngx';
 import { InAppBrowser } from '@ionic-native/in-app-browser/ngx';
+import { CallNumber } from '@ionic-native/call-number/ngx';
 
 @Component({
     selector: 'app-details',
@@ -15,19 +16,24 @@ export class DetailsPage {
             private modalController: ModalController, 
             private navParams: NavParams, 
             private socialSharing: SocialSharing, 
-            private iab: InAppBrowser
+            private iab: InAppBrowser,
+            private callNumber: CallNumber
         ) { }
 
     ionViewWillEnter() {
         this.event = this.navParams.get('event');
     }
 
+    async dismiss() {
+        await this.modalController.dismiss();
+    }
+
     async openUrl(url: string) {
         this.iab.create(url, '_system');
     }
 
-    async dismiss() {
-        await this.modalController.dismiss();
+    call(number: string) {
+        this.callNumber.callNumber(number.replace(/[^0-9\.]+/g, ""), true);
     }
 
     async shareTwitter() {
@@ -39,7 +45,7 @@ export class DetailsPage {
     }
 
     async shareEmail() {
-        this.socialSharing.shareViaEmail(`Ei, vai rolar ${this.event.title} em ${this.event.city.title}. Saiba mais sobre esse e outros eventos no app PurAí.`, 'Subject', ['contato@purai.io'], null, null, null);
+        this.socialSharing.shareViaEmail(`Ei, vai rolar ${this.event.title} em ${this.event.city.title}. Saiba mais sobre esse e outros eventos no app PurAí.`, 'PurAí', ['contato@purai.io'], null, null, null);
     }
     
     async shareFacebook() {

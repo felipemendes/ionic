@@ -27,6 +27,9 @@ ion-toolbar {
     .item {
         display: flex;
         align-items: flex-start;
+        &:last-child {
+            margin-bottom: 60px;
+        }
         ion-img {
             width: 20px;
             margin-right: 10px;
@@ -78,8 +81,4 @@ ion-toolbar {
             }
         }
     }
-}
-
-#map_canvas {
-    height: 90px;
 }

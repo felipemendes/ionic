@@ -21,6 +21,7 @@
                 <p>{{event.title}}</p>
             </div>
         </div>
+
         <div class="item" *ngIf="event.about.length > 0" margin>
             <ion-img src="assets/icon/info.png"></ion-img>
             <div>
@@ -28,6 +29,7 @@
                 <p [innerHTML]="event.about"></p>
             </div>
         </div>
+
         <div class="item" *ngIf="event.date.length > 0" margin>
             <ion-img src="assets/icon/date.png"></ion-img>
             <div>
@@ -35,6 +37,7 @@
                 <p>{{event.date}}</p>
             </div>
         </div>
+       
         <div class="item" *ngIf="event.price.length > 0" margin>
             <ion-img src="assets/icon/price.png"></ion-img>
             <div>
@@ -42,6 +45,7 @@
                 <p>{{event.price}}</p>
             </div>
         </div>
+       
         <div class="item" *ngIf="event.where.length > 0" margin>
             <ion-img src="assets/icon/where.png"></ion-img>
             <div>
@@ -49,6 +53,7 @@
                 <p>{{event.where}}</p>
             </div>
         </div>
+       
         <div class="item" *ngIf="event.address.length > 0" margin>
             <ion-img src="assets/icon/address.png"></ion-img>
             <div>
@@ -56,6 +61,7 @@
                 <p>{{event.address}}</p>
             </div>
         </div>
+       
         <div class="item" *ngIf="event.where_to_buy.title.length > 0" margin>
             <ion-img src="assets/icon/ticket.png"></ion-img>
             <div>
@@ -64,11 +70,13 @@
                 <p *ngIf="event.where_to_buy.url.length > 0" class="link" (click)="openUrl(event.where_to_buy.url)">Ir para o site</p>
             </div>
         </div>
+       
         <div class="item" *ngIf="event.contact.length > 0" margin>
             <ion-img src="assets/icon/phone.png"></ion-img>
             <div>
                 <span>Informações</span>
                 <p>{{event.contact}}</p>
+                <p class="link" (click)="call(event.contact)">Ligar</p>
             </div>
         </div>
     </div>
