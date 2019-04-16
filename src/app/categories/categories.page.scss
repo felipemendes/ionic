@@ -10,7 +10,12 @@
         .card-content-md {
             background: var(--shadow);
             padding: 20px;
-            ion-card-title {
+            display: flex;
+            align-items: flex-end;
+            justify-content: space-between;
+            
+            ion-card-title,
+            ion-icon {
                 color: #fff;
                 font-size: 26px;
                 font-weight: 600;

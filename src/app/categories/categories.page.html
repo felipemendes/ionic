@@ -15,6 +15,7 @@
             <ion-card *ngFor="let category of categories" (click)="showEvents(category)">
                 <ion-card-content>
                     <ion-card-title>{{category.title}}</ion-card-title>
+                    <ion-icon name="arrow-forward" slot="end"></ion-icon>
                 </ion-card-content>
             </ion-card>
         </div>
