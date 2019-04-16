@@ -3,7 +3,6 @@ import { NavController } from '@ionic/angular';
 import { Platform } from '@ionic/angular';
 import { SplashScreen } from '@ionic-native/splash-screen/ngx';
 import { StatusBar } from '@ionic-native/status-bar/ngx';
-import { GoogleAnalytics } from '@ionic-native/google-analytics/ngx';
 import { SiriShortcut, SiriShortcuts } from '@ionic-native/siri-shortcuts/ngx';
 
 @Component({
@@ -12,7 +11,6 @@ import { SiriShortcut, SiriShortcuts } from '@ionic-native/siri-shortcuts/ngx';
 })
 export class AppComponent {
     constructor(
-            private ga: GoogleAnalytics,
             private navController: NavController,
             private platform: Platform,
             private splashScreen: SplashScreen,
@@ -34,14 +32,6 @@ export class AppComponent {
                 });
             });
         });
-
-        this.ga.startTrackerWithId('UA-132748814-5')
-            .then(() => {
-                console.log('Google analytics is ready now');
-                this.ga.trackView('test');
-            })
-            .catch(e => console.log('Error starting GoogleAnalytics', e)
-        );
     }
 
     goToTab(tab:string) {
