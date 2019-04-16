@@ -18,6 +18,7 @@ import { DetailsPage } from './details/details.page';
 import { SiriShortcuts } from '@ionic-native/siri-shortcuts/ngx';
 import { SiriShortcutsPage } from './siri-shortcuts/siri-shortcuts.page';
 import { CallNumber } from '@ionic-native/call-number/ngx';
+import { Calendar } from '@ionic-native/calendar/ngx';
 
 @NgModule({
     declarations: [
@@ -44,6 +45,7 @@ import { CallNumber } from '@ionic-native/call-number/ngx';
         SplashScreen,
         SiriShortcuts,
         CallNumber,
+        Calendar,
         { provide: RouteReuseStrategy, useClass: IonicRouteStrategy }
     ],
     bootstrap: [AppComponent]

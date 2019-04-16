@@ -1,8 +1,9 @@
 import { Component } from '@angular/core';
-import { NavParams, ModalController } from '@ionic/angular';
+import { NavParams, ModalController, Platform, AlertController } from '@ionic/angular';
 import { SocialSharing } from '@ionic-native/social-sharing/ngx';
 import { InAppBrowser } from '@ionic-native/in-app-browser/ngx';
 import { CallNumber } from '@ionic-native/call-number/ngx';
+import { Calendar } from '@ionic-native/calendar/ngx';
 
 @Component({
     selector: 'app-details',
@@ -17,7 +18,10 @@ export class DetailsPage {
             private navParams: NavParams, 
             private socialSharing: SocialSharing, 
             private iab: InAppBrowser,
-            private callNumber: CallNumber
+            private callNumber: CallNumber,
+            private calendar: Calendar,
+            private platform: Platform,
+            private alertController: AlertController
         ) { }
 
     ionViewWillEnter() {
@@ -26,6 +30,12 @@ export class DetailsPage {
 
     async dismiss() {
         await this.modalController.dismiss();
+    }
+
+    addToCalendar(event: any) {
+        this.platform.ready().then(() => {
+            this.calendar.createEventInteractively(event.title, event.where, `${event.date}. Evento adicionado pelo PurAí.`);
+        });
     }
 
     async openUrl(url: string) {
@@ -51,4 +61,14 @@ export class DetailsPage {
     async shareFacebook() {
         this.socialSharing.shareViaFacebook(`Ei, vai rolar ${this.event.title} em ${this.event.city.title}. Saiba mais sobre esse e outros eventos no app PurAí.`, this.event.image, 'https://itunes.apple.com/us/app/pura%C3%AD/id1067098059?l=pt&ls=1&mt=8');
     }
+
+    async presentAlert(header:string, subHeader:string) {
+        const alert = await this.alertController.create({
+          header: header,
+          subHeader: subHeader,
+          buttons: ['OK']
+        });
+    
+        await alert.present();
+      }
 }

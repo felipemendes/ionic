@@ -27,9 +27,6 @@ ion-toolbar {
     .item {
         display: flex;
         align-items: flex-start;
-        &:last-child {
-            margin-bottom: 60px;
-        }
         ion-img {
             width: 20px;
             margin-right: 10px;
@@ -40,6 +37,7 @@ ion-toolbar {
             .link {
                 color: #3880ff;
                 font-size: 16px;
+                text-decoration: none;
             }
             span {
                 color: var(--ion-color-primary);
@@ -53,6 +51,9 @@ ion-toolbar {
                 font-weight: 700;
             }
         }
+    }
+    .add-to-calendar {
+        margin: 20px 16px 30px 16px;
     }
     .social-sharing {
         position: absolute;

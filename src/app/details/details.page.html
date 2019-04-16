@@ -33,7 +33,7 @@
         <div class="item" *ngIf="event.date.length > 0" margin>
             <ion-img src="assets/icon/date.png"></ion-img>
             <div>
-                <span>Data</span>
+                <span>Quando</span>
                 <p>{{event.date}}</p>
             </div>
         </div>
@@ -41,7 +41,7 @@
         <div class="item" *ngIf="event.price.length > 0" margin>
             <ion-img src="assets/icon/price.png"></ion-img>
             <div>
-                <span>Preço</span>
+                <span>Valor</span>
                 <p>{{event.price}}</p>
             </div>
         </div>
@@ -66,19 +66,20 @@
             <ion-img src="assets/icon/ticket.png"></ion-img>
             <div>
                 <span>Onde comprar</span>
-                <p>{{event.where_to_buy.title}}</p>
-                <p *ngIf="event.where_to_buy.url.length > 0" class="link" (click)="openUrl(event.where_to_buy.url)">Ir para o site</p>
+                <p>{{event.where_to_buy.title}} <span *ngIf="event.where_to_buy.url.length > 0" class="link" (click)="openUrl(event.where_to_buy.url)">Ir para o site</span></p>
             </div>
         </div>
        
         <div class="item" *ngIf="event.contact.length > 0" margin>
             <ion-img src="assets/icon/phone.png"></ion-img>
             <div>
-                <span>Informações</span>
-                <p>{{event.contact}}</p>
-                <p class="link" (click)="call(event.contact)">Ligar</p>
+                <span>Mais informações</span>
+                <p>{{event.contact}} <span class="link" (click)="call(event.contact)">Ligar</span></p>
             </div>
         </div>
+
+        <ion-button expand="block" class="add-to-calendar" (click)="addToCalendar(event)">Adicionar ao calendário</ion-button>
+
     </div>
 </ion-content>
   

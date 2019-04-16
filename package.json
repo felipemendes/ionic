@@ -24,6 +24,7 @@
     "@capacitor/cli": "1.0.0-beta.17",
     "@capacitor/core": "1.0.0-beta.17",
     "@capacitor/ios": "^1.0.0-beta.17",
+    "@ionic-native/calendar": "^5.4.0",
     "@ionic-native/call-number": "^5.4.0",
     "@ionic-native/core": "^5.2.0",
     "@ionic-native/google-analytics": "^5.2.0",
@@ -39,6 +40,7 @@
     "cordova-browser": "5.0.4",
     "cordova-ios": "4.5.5",
     "cordova-plugin-add-swift-support": "1.7.2",
+    "cordova-plugin-calendar": "5.1.4",
     "cordova-plugin-device": "^2.0.2",
     "cordova-plugin-google-analytics": "^1.8.6",
     "cordova-plugin-inappbrowser": "^3.0.0",
@@ -101,7 +103,11 @@
       "cordova-plugin-inappbrowser": {},
       "cordova-plugin-splashscreen": {},
       "cordova-plugin-siri-shortcuts": {},
-      "mx.ferreyra.callnumber": {}
+      "mx.ferreyra.callnumber": {},
+      "cordova-plugin-calendar": {
+        "CALENDAR_USAGE_DESCRIPTION": " ",
+        "CONTACTS_USAGE_DESCRIPTION": " "
+      }
     },
     "platforms": [
       "android",
